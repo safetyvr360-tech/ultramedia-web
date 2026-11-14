@@ -1,0 +1,79 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f69306462.webp",
+   "files": [
+    "photo-f69306462-500.webp",
+    "photo-f69306462-960.webp",
+    "photo-f69306462.webp"
+   ],
+   "id": "f69306462",
+   "alt": "Quadcopter camera drone in flight",
+   "by": "Josh Sorenson",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Quadcopter_camera_drone_in_flight.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f22926362.webp",
+   "files": [
+    "photo-f22926362-500.webp",
+    "photo-f22926362-960.webp",
+    "photo-f22926362.webp"
+   ],
+   "id": "f22926362",
+   "alt": "Webberville Solar Farm Near Austin Texas from the Air",
+   "by": "The tdog",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Webberville_Solar_Farm_Near_Austin_Texas_from_the_Air.JPG",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f55529578.webp",
+   "files": [
+    "photo-f55529578-500.webp",
+    "photo-f55529578-960.webp",
+    "photo-f55529578.webp"
+   ],
+   "id": "f55529578",
+   "alt": "Aerial view at construction site at Chenab Bridge",
+   "by": "Ojhayogesh",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_at_construction_site_at_Chenab_Bridge.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f16244508-960.webp",
+   "files": [
+    "photo-f16244508-500.webp",
+    "photo-f16244508-960.webp"
+   ],
+   "id": "f16244508",
+   "alt": "Thermographic inspection mont blanc",
+   "by": "Kristoferb",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Thermographic_inspection_mont_blanc.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f182066156.webp",
+   "files": [
+    "photo-f182066156-500.webp",
+    "photo-f182066156-960.webp",
+    "photo-f182066156.webp"
+   ],
+   "id": "f182066156",
+   "alt": "Aerial view of the Uranquinty Solar Farm 02",
+   "by": "Bidgee",
+   "licence": "CC BY-SA 3.0 au",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0/au/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Uranquinty_Solar_Farm_02.jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}

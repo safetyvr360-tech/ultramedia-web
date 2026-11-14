@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /chat.php
+Sitemap: https://ultramedia.com.co/sitemap.xml

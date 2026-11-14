@@ -1,0 +1,36 @@
+# local work, not part of the site
+src-img/
+shots/
+.taste-skill/
+.claude/
+names.json
+
+# design kit: only the files the pages load
+assets/*
+!assets/system.css
+!assets/system.js
+!assets/img/
+!assets/ui/
+assets/ui/*
+!assets/ui/cards.css
+!assets/ui/ui.js
+!assets/motion/
+!assets/layout/
+assets/layout/*
+!assets/layout/layout.css
+!assets/layout/layout.js
+!assets/icons/
+assets/icons/*
+!assets/icons/icon.css
+!assets/icons/autocad.svg
+!assets/icons/meta.svg
+!assets/icons/unrealengine.svg
+!assets/icons/icons-credits.json
+!assets/moments/
+assets/moments/*
+!assets/moments/moments.js
+!assets/moments/lib.js
+!assets/moments/photo-chapters/
+!assets/moments/picture-develops/
+assets/moments/*/demo*.html
+assets/motion/*.html
