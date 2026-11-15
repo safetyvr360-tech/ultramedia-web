@@ -4,7 +4,10 @@ Rebranding de ultramedia.com.co. Reúne la visualización 3D y los drones de Ult
 Estudio FBX, suma la línea nueva de drones industriales (termografía) y enlaza a SkyDeck para el seguimiento de obra.
 Incluye un asistente de chat que responde a cualquier hora y pasa a WhatsApp.
 
-Estado: avance del 14 de noviembre de 2026, para recibir comentarios del cliente.
+**Ver la web en vivo: https://safetyvr360-tech.github.io/ultramedia-web/**
+
+Estado: avance del 14 de noviembre de 2026, para recibir comentarios del cliente. El chat responde con datos guardados
+mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting final responde con IA.
 
 ## Cómo se ve
 
