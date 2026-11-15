@@ -42,10 +42,12 @@
       a: '¡Hola! Soy el asistente de Ultramedia. ¿Buscas visualización 3D, drones para obra o industria, o marketing para tu inmobiliaria?' },
     { k: ['termograf', 'termic', 'solar', 'panel', 'fotovolta', 'industrial', 'industria', 'subestacion', 'red electrica', 'redes electricas', 'cubierta', 'techo', 'inspeccion'],
       a: 'Hacemos termografía aérea con drones para paneles solares, infraestructura industrial, redes eléctricas y edificaciones o cubiertas. Detecta anomalías térmicas antes de que causen pérdidas o paradas. Se cotiza según el sitio; la ficha técnica tiene el detalle.', wa: true, x: [FICHA] },
+    { k: ['topograf', 'conteo de ganado', 'finca', 'campo', 'predio', 'hacienda', 'agricultura', 'cultivo', 'siembra', 'ndvi', 'multiespectral', 'ganado', 'ganaderia', 'vacas', 'potrero', 'drenaje', 'curvas de nivel', 'sig'],
+      a: 'Para fincas hacemos drones y SIG (precios de lanzamiento, antes de IVA): topografía y drenajes desde $160.000 por hectárea (mínimo $1.800.000), agricultura de precisión con mapa NDVI desde $190.000 por hectárea por vuelo (mínimo 10 ha), diseño de cultivos desde $2.500.000 (hasta 20 ha), diagnóstico predial desde $2.200.000 (hasta 10 ha) y ganadería de precisión desde $1.500.000 por visita (hasta 50 ha).', wa: true, x: [{ label: 'Ver drones para fincas', href: '#campo' }] },
     { k: ['skydeck', 'obra', 'avance', 'seguimiento', 'constructora', 'vuelo', 'piloto'],
       a: 'Para obras usamos SkyDeck: un piloto verificado de la zona vuela la obra y cada visita queda guardada para compararla. Avance de obra: 1 vuelo al mes, unos $1.000.000 al mes por obra. Seguimiento: 2 vuelos al mes con modelos 3D y mediciones, unos $1.800.000. Constructora: a medida. Precios antes de IVA; también hay vuelos sueltos.', x: [SKYDECK] },
-    { k: ['drone', 'dron', 'aereo', 'aerea', 'ortomosaico', 'topograf', 'hidrolog', 'mapa'],
-      a: 'Con drones hacemos termografía industrial, mapas y modelos 3D, topografía y estudios hidrológicos, y seguimiento de obra con SkyDeck. ¿Es para una obra o para una planta o instalación?', x: [SKYDECK, FICHA] },
+    { k: ['drone', 'dron', 'aereo', 'aerea', 'ortomosaico', 'hidrolog', 'mapa'],
+      a: 'Con drones hacemos termografía industrial, topografía y SIG para fincas, mapas y modelos 3D, estudios hidrológicos y seguimiento de obra con SkyDeck. ¿Es para una obra, una finca o una planta?', x: [SKYDECK, FICHA] },
     { k: ['render', 'imagen', 'fotorreal', 'modelado', 'modelo 3d', 'plano', 'planos', 'bim'],
       a: 'Hacemos modelado 3D a partir de tus planos, renders fotorrealistas y video 360° estereoscópico, con metodología BIM si el proyecto lo necesita. El precio depende del tamaño del proyecto: cuéntanos qué tienes y te cotizamos.', wa: true },
     { k: ['tour', 'recorrido', '360', 'interactivo', 'virtual', 'vr', 'realidad virtual', 'visor'],
@@ -123,7 +125,7 @@
   function setChips() {
     chips.innerHTML = '';
     log.appendChild(chips); // the suggestions follow the latest message
-    ['Termografía con drones', 'Planes de SkyDeck', 'Tours y renders', 'Marketing inmobiliario'].forEach(function (c) {
+    ['Termografía con drones', 'Drones para fincas', 'Planes de SkyDeck', 'Tours y renders'].forEach(function (c) {
       var b = document.createElement('button'); b.type = 'button'; b.className = 'chat__chip'; b.textContent = c;
       b.addEventListener('click', function () { ask(c); });
       chips.appendChild(b);

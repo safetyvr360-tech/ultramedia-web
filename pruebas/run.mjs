@@ -141,6 +141,8 @@ test('S13', 'Respuestas del chat sin servidor (datos guardados)', () => {
     ['tienen tours 360', /tours? interactivo/i],
     ['marketing para mi inmobiliaria', /6 meses/],
     ['dónde están ubicados', /Barranquilla/],
+    ['cuánto cuesta la topografía de mi finca', /160\.000/],
+    ['conteo de ganado con drones', /ganadería de precisión/i],
     ['hola', /asistente de Ultramedia/],
     ['¿venden pizza?', /WhatsApp/]
   ];

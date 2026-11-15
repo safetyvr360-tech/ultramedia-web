@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ultramedia: visualización 3D, realidad virtual y drones en Barranquilla</title>
-<meta name="description" content="Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, y termografía e inspección con drones para la industria, desde Barranquilla.">
+<meta name="description" content="Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, termografía con drones para la industria y drones y SIG para fincas, desde Barranquilla.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ultramedia: visualización 3D y drones en Barranquilla">
 <meta property="og:description" content="Tours 360°, realidad virtual, marketing inmobiliario y drones para obras e industria.">
@@ -13,7 +13,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#f7f7f5">
 <!-- <link rel="canonical" href="https://ultramedia.com.co/"> -->
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Ultramedia", "alternateName": "Ultramedia Tech", "url": "https://ultramedia.com.co/", "image": "https://ultramedia.com.co/share.jpg", "logo": "https://ultramedia.com.co/favicon.svg", "description": "Visualización 3D, tours 360°, realidad virtual, marketing inmobiliario y drones para obras e industria en Barranquilla.", "email": "jasonca95@gmail.com", "telephone": "+57 300 624 2963", "address": {"@type": "PostalAddress", "addressLocality": "Barranquilla", "addressRegion": "Atlántico", "addressCountry": "CO"}, "areaServed": ["Colombia", "Argentina", "España", "Estados Unidos"], "founder": {"@type": "Person", "name": "Jason Carrero"}, "sameAs": ["https://www.instagram.com/vrdev.ar/", "https://skydeck.dronesbaq.com"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Servicios", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Visualización 3D y renders"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tours 360° y realidad virtual"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Termografía aérea con drones"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguimiento de obra con drones (SkyDeck)"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marketing inmobiliario"}}]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Ultramedia", "alternateName": "Ultramedia Tech", "url": "https://ultramedia.com.co/", "image": "https://ultramedia.com.co/share.jpg", "logo": "https://ultramedia.com.co/favicon.svg", "description": "Visualización 3D, tours 360°, realidad virtual, marketing inmobiliario y drones para obras e industria en Barranquilla.", "email": "jasonca95@gmail.com", "telephone": "+57 300 624 2963", "address": {"@type": "PostalAddress", "addressLocality": "Barranquilla", "addressRegion": "Atlántico", "addressCountry": "CO"}, "areaServed": ["Colombia", "Argentina", "España", "Estados Unidos"], "founder": {"@type": "Person", "name": "Jason Carrero"}, "sameAs": ["https://www.instagram.com/vrdev.ar/", "https://skydeck.dronesbaq.com"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Servicios", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Visualización 3D y renders"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tours 360° y realidad virtual"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Termografía aérea con drones"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguimiento de obra con drones (SkyDeck)"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marketing inmobiliario"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Topografía y drenajes con drones"}, "price": "160000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Agricultura de precisión con drones"}, "price": "190000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diseño de cultivos"}, "price": "2500000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diagnóstico predial"}, "price": "2200000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ganadería de precisión"}, "price": "1500000", "priceCurrency": "COP"}]}}</script>
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +95,8 @@
   @media (min-width: 1024px) { #drones { background-image: radial-gradient(60% 50% at 100% 0%, rgba(208,16,111,.16), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(255,255,255,.05), transparent 70%); } }
   .facts dd { background: linear-gradient(90deg, var(--ink), var(--ink) 60%, var(--action)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   @media (prefers-reduced-motion: reduce) { .hero__media > picture > img { animation: none; } }
+  .campo__pic { aspect-ratio: 1290 / 641; }
+  .campo__pic .frame__img { object-fit: contain; background: #0d1a10; }
   /* facts strip and press row */
   .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); margin: 0 0 var(--s-7); padding: var(--s-5) 0; }
   .facts > div { display: flex; flex-direction: column-reverse; gap: var(--s-2); }
@@ -135,12 +137,17 @@
         <a class="nav__link" href="#drones">Drones <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
-            <div class="menu-col span-3">
+            <div class="menu-col span-2">
               <p class="t-label">Industria</p>
               <a href="#drones">Termografía aérea<span>Paneles solares, redes y cubiertas</span></a>
               <a href="#drones">Mapas y modelos 3D<span>Topografía y estudios hidrológicos</span></a>
             </div>
-            <div class="menu-col span-3">
+            <div class="menu-col span-2">
+              <p class="t-label">Campo</p>
+              <a href="#campo">Topografía y drenajes<span>Desde $160.000 por hectárea</span></a>
+              <a href="#campo">Agricultura y ganadería<span>Mapas NDVI y conteo de animales</span></a>
+            </div>
+            <div class="menu-col span-2">
               <p class="t-label">Obras</p>
               <a href="#skydeck">SkyDeck<span>Un vuelo al mes por obra</span></a>
               <a href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">Pedir un vuelo<span>En la plataforma SkyDeck</span></a>
@@ -293,6 +300,30 @@
     </div>
   </section>
 
+  <section class="section" id="campo" aria-labelledby="campo-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="campo-h">Drones y SIG para fincas</h2>
+        <p>Volamos la finca y entregamos mapas para decidir dónde sembrar, cómo drenar y cómo está el ganado.</p>
+      </div>
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-5">
+          <ul class="rows campo-rows">
+            <li><span class="rows__name">Topografía y drenajes</span><p>Curvas de nivel y drenajes. Mínimo $1.800.000.</p><span class="rows__value">$160.000 / ha</span></li>
+            <li><span class="rows__name">Agricultura de precisión</span><p>Mapa de vigor NDVI por lote. Mínimo 10 ha.</p><span class="rows__value">$190.000 / ha</span></li>
+            <li><span class="rows__name">Diseño de cultivos</span><p>Lotes, surcos y drenajes. Hasta 20 ha.</p><span class="rows__value">$2.500.000</span></li>
+            <li><span class="rows__name">Diagnóstico predial</span><p>Áreas, linderos y usos del suelo. Hasta 10 ha.</p><span class="rows__value">$2.200.000</span></li>
+            <li><span class="rows__name">Ganadería de precisión</span><p>Conteo de animales y potreros. Hasta 50 ha.</p><span class="rows__value">$1.500.000</span></li>
+          </ul>
+          <p class="t-small">Precios de lanzamiento desde, antes de IVA. El valor final depende del área y el acceso.</p>
+        </div>
+        <div class="frame frame--photo span-6 start-7 campo__pic">
+          <img loading="lazy" class="frame__img" src="assets/img/agro-sig.webp" srcset="assets/img/agro-sig-640.webp 640w, assets/img/agro-sig-960.webp 960w, assets/img/agro-sig.webp 1290w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 628px" width="1290" height="641" alt="Finca vista desde el aire con mapas de topografía y drenajes, agricultura de precisión, diseño de cultivos, diagnóstico predial y ganadería de precisión" data-source="client" data-subject="drones y SIG">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section ground-surface" id="skydeck" aria-labelledby="skydeck-h">
     <div class="wrap">
       <div class="grid grid--top fill">
@@ -426,7 +457,7 @@
         <div><h2 id="close-h">Cuéntanos tu proyecto</h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
         <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
-      <div class="close__media"><img style="--pos: 50% 55%" src="assets/img/rivendel.webp" srcset="assets/img/rivendel-close-phone.webp 711w, assets/img/rivendel-1200.webp 1200w, assets/img/rivendel.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" width="1600" height="900" alt="Cabaña de piedra y madera entre árboles en flor del proyecto Rivendel Lodge, al atardecer" loading="lazy" data-source="client" data-subject="Rivendel Lodge"></div>
+      <div class="close__media"><img style="--pos: 50% 55%" src="assets/img/rivendel.webp" srcset="assets/img/rivendel-close-phone.webp 468w, assets/img/rivendel-1200.webp 1200w, assets/img/rivendel.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" width="1600" height="900" alt="Cabaña de piedra y madera entre árboles en flor del proyecto Rivendel Lodge, al atardecer" loading="lazy" data-source="client" data-subject="Rivendel Lodge"></div>
     </div>
     <div class="closing__links">
       <div class="grid">
@@ -435,7 +466,7 @@
           <p class="footer__lede">Visualización 3D, drones y marketing inmobiliario. Barranquilla, Colombia.</p>
         </div>
         <div class="span-2 footer__col"><h3>Servicios</h3><ul><li><a href="#servicios">Visualización 3D</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#inmobiliarias">Inmobiliarias</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Drones</h3><ul><li><a href="#drones">Industria</a></li><li><a href="#skydeck">Obras</a></li><li><a href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">SkyDeck</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Drones</h3><ul><li><a href="#drones">Industria</a></li><li><a href="#campo">Campo</a></li><li><a href="#skydeck">Obras</a></li><li><a href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">SkyDeck</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Estudio</h3><ul><li><a href="#estudio">Prensa</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#faq">Preguntas</a></li><li><a href="#asistente">Asistente</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contacto</h3><ul><li><a href="mailto:jasonca95@gmail.com">Escribir un correo</a></li><li><a href="https://www.instagram.com/vrdev.ar/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
