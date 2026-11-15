@@ -17,6 +17,9 @@ mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting f
 ### En celular
 ![La página completa en celular, pantalla por pantalla](capturas/celular.jpg)
 
+### Cotizador para fincas
+![Cotizador de drones y SIG para fincas con el estimado calculado](capturas/cotizador.png)
+
 ### Detalles
 | Menú de drones | Asistente | Términos y condiciones |
 | --- | --- | --- |
@@ -29,10 +32,11 @@ mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting f
 3. **Proyectos con recorrido:** Plaza Urbina, Casa San Martín y Box House, cada uno con su tour.
 4. **Obra publicada en cuatro países:** cifras y notas de prensa del Fuerte San Rafael.
 5. **Inspección industrial con drones:** termografía para paneles solares, industria, redes y cubiertas.
-6. **Seguimiento de obra con SkyDeck:** planes y enlace a skydeck.dronesbaq.com.
-7. **Marketing para inmobiliarias y loteos** y su **método en cuatro etapas** (Estudio FBX).
-8. **Equipo**, **preguntas frecuentes** y el **asistente**.
-9. Páginas legales: política de datos (Ley 1581), términos y condiciones (Ley 1480), PQR y cookies.
+6. **Drones y SIG para fincas:** topografía, agricultura y ganadería de precisión, diseño de cultivos y diagnóstico predial, con un cotizador que calcula el estimado y lo envía por WhatsApp.
+7. **Seguimiento de obra con SkyDeck:** planes y enlace a skydeck.dronesbaq.com.
+8. **Marketing para inmobiliarias y loteos** y su **método en cuatro etapas** (Estudio FBX).
+9. **Equipo**, **preguntas frecuentes** y el **asistente**.
+10. Páginas legales: política de datos (Ley 1581), términos y condiciones (Ley 1480), PQR y cookies.
 
 ## Verla en tu computador
 

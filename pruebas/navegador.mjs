@@ -105,6 +105,39 @@ try {
   await phone.click('.nav__toggle'); await phone.waitForTimeout(300);
   if ((await phone.getAttribute('.nav__toggle', 'aria-expanded')) !== 'true') nav.push('el menú del celular no abre');
   add('B07', 'Menús de computador y celular', nav);
+
+  // B09: the quote builder: asks for what is missing, adds up right, opens WhatsApp with the quote
+  const q = [];
+  const qp = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await qp.goto(URL, { waitUntil: 'networkidle' });
+  await qp.evaluate(() => { window.__opened = []; window.open = (u) => { window.__opened.push(u); return {}; }; });
+  await qp.locator('#cotizador').scrollIntoViewIfNeeded();
+  await qp.click('#cotizador button[type="submit"]');
+  if (await qp.locator('#q-svc-err').isHidden()) q.push('no pidió elegir un servicio');
+  if (await qp.locator('#q-ha-err').isHidden()) q.push('no pidió el área');
+  if ((await qp.evaluate(() => window.__opened.length)) !== 0) q.push('abrió WhatsApp sin datos');
+  await qp.click('.opt:has(input[value="topo"])'); await qp.click('.opt:has(input[value="ganado"])');
+  await qp.fill('#q-ha', '30'); await qp.fill('#q-mun', 'Sabanalarga');
+  const totalTxt = (await qp.locator('[data-total]').innerText()).replace(/\s/g, '');
+  if (!/6\.300\.000/.test(totalTxt)) q.push('total esperado $6.300.000 (30 ha: topografía $4.800.000 + ganadería $1.500.000), salió ' + totalTxt);
+  await qp.fill('#q-ha', '5');
+  const t2 = (await qp.locator('[data-total]').innerText()).replace(/\s/g, '');
+  if (!/3\.300\.000/.test(t2)) q.push('con 5 ha debía aplicar el mínimo de topografía ($1.800.000 + $1.500.000 = $3.300.000), salió ' + t2);
+  await qp.fill('#q-ha', '30');
+  await qp.click('#cotizador button[type="submit"]');
+  const opened = await qp.evaluate(() => window.__opened[0] || '');
+  const text = decodeURIComponent(opened.split('text=')[1] || '');
+  if (!opened.startsWith('https://wa.me/573006242963?text=')) q.push('no abrió el WhatsApp de Jason: ' + opened.slice(0, 60));
+  for (const must of ['Topografía y drenajes', 'Ganadería de precisión', '30 ha', 'Sabanalarga', '6.300.000']) if (!text.includes(must)) q.push('el mensaje no incluye ' + must);
+  await qp.close();
+  const qm = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await qm.goto(URL, { waitUntil: 'networkidle' });
+  await qm.locator('#cotizador').scrollIntoViewIfNeeded();
+  await qm.click('.opt:has(input[value="agro"])'); await qm.fill('#q-ha', '8');
+  const t3 = (await qm.locator('[data-total]').innerText()).replace(/\s/g, '');
+  if (!/1\.900\.000/.test(t3)) q.push('en celular, agricultura con 8 ha debía cobrar el mínimo de 10 ha ($1.900.000), salió ' + t3);
+  await qm.close();
+  add('B09', 'Cotizador: pide lo que falta, suma bien (mínimos incluidos) y abre WhatsApp con el pedido', q);
   add('B08', 'Sin errores en la consola', errors);
   await phone.close(); await page.close();
 } finally { await browser.close(); server.close(); }

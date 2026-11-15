@@ -44,6 +44,7 @@
 <link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <link rel="stylesheet" href="asistente.css">
+<link rel="stylesheet" href="cotizador.css">
 <!-- page CSS: inside visuals only -->
 <style>
   #drones .pair { display: grid; gap: var(--s-5); height: 100%; grid-template-rows: 1fr 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; }
@@ -95,8 +96,6 @@
   @media (min-width: 1024px) { #drones { background-image: radial-gradient(60% 50% at 100% 0%, rgba(208,16,111,.16), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(255,255,255,.05), transparent 70%); } }
   .facts dd { background: linear-gradient(90deg, var(--ink), var(--ink) 60%, var(--action)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   @media (prefers-reduced-motion: reduce) { .hero__media > picture > img { animation: none; } }
-  .campo__pic { aspect-ratio: 1290 / 641; }
-  .campo__pic .frame__img { object-fit: contain; background: #0d1a10; }
   /* facts strip and press row */
   .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); margin: 0 0 var(--s-7); padding: var(--s-5) 0; }
   .facts > div { display: flex; flex-direction: column-reverse; gap: var(--s-2); }
@@ -300,27 +299,37 @@
     </div>
   </section>
 
-  <section class="section" id="campo" aria-labelledby="campo-h">
+  <section class="section pricing" id="campo" style="--hm: 2" aria-labelledby="campo-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="campo-h">Drones y SIG para fincas</h2>
-        <p>Volamos la finca y entregamos mapas para decidir dónde sembrar, cómo drenar y cómo está el ganado.</p>
+        <h2 id="campo-h">Drones y SIG para fincas. <span class="muted">Precios y cotizador.</span></h2>
+        <p>Elige lo que necesitas y el área de la finca: el estimado se calcula al momento y te lo enviamos por WhatsApp para confirmarlo.</p>
       </div>
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-5">
-          <ul class="rows campo-rows">
-            <li><span class="rows__name">Topografía y drenajes</span><p>Curvas de nivel y drenajes. Mínimo $1.800.000.</p><span class="rows__value">$160.000 / ha</span></li>
-            <li><span class="rows__name">Agricultura de precisión</span><p>Mapa de vigor NDVI por lote. Mínimo 10 ha.</p><span class="rows__value">$190.000 / ha</span></li>
-            <li><span class="rows__name">Diseño de cultivos</span><p>Lotes, surcos y drenajes. Hasta 20 ha.</p><span class="rows__value">$2.500.000</span></li>
-            <li><span class="rows__name">Diagnóstico predial</span><p>Áreas, linderos y usos del suelo. Hasta 10 ha.</p><span class="rows__value">$2.200.000</span></li>
-            <li><span class="rows__name">Ganadería de precisión</span><p>Conteo de animales y potreros. Hasta 50 ha.</p><span class="rows__value">$1.500.000</span></li>
-          </ul>
-          <p class="t-small">Precios de lanzamiento desde, antes de IVA. El valor final depende del área y el acceso.</p>
+      <form class="quote grid grid--top fill" id="cotizador" novalidate>
+        <fieldset class="quote__opts span-6" aria-describedby="q-svc-err">
+          <legend class="quote__legend">Servicios</legend>
+          <label class="opt"><input type="checkbox" name="svc" value="topo"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-mountain.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Topografía y drenajes</b><small>Ortofoto, curvas de nivel y drenajes. Mínimo $1.800.000.</small></span><span class="opt__price">$160.000<small>por ha</small></span></label>
+          <label class="opt"><input type="checkbox" name="svc" value="agro"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-sprout.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Agricultura de precisión</b><small>Vuelo multiespectral y mapa NDVI. Mínimo 10 ha.</small></span><span class="opt__price">$190.000<small>por ha</small></span></label>
+          <label class="opt"><input type="checkbox" name="svc" value="diseno"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-layout-grid.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Diseño de cultivos</b><small>Lotes, surcos y drenajes. Hasta 20 ha.</small></span><span class="opt__price">$2.500.000<small>por finca</small></span></label>
+          <label class="opt"><input type="checkbox" name="svc" value="predial"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-map.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Diagnóstico predial</b><small>Áreas, linderos de referencia y usos del suelo. Hasta 10 ha.</small></span><span class="opt__price">$2.200.000<small>por predio</small></span></label>
+          <label class="opt"><input type="checkbox" name="svc" value="ganado"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-scan-eye.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Ganadería de precisión</b><small>Conteo de animales y estado de potreros.</small></span><span class="opt__price">$1.500.000<small>cada 50 ha</small></span></label>
+          <p class="field__error" id="q-svc-err" hidden>Elige al menos un servicio.</p>
+        </fieldset>
+        <div class="quote__card span-6 start-7">
+          <div class="quote__fields">
+            <div class="field"><label for="q-ha">Área de la finca (hectáreas)</label>
+              <input id="q-ha" name="ha" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="q-ha-err">
+              <p class="field__error" id="q-ha-err" hidden>Escribe el área en hectáreas, por ejemplo 25.</p></div>
+            <div class="field"><label for="q-mun">Municipio <span class="muted">(opcional)</span></label>
+              <input id="q-mun" name="municipio" type="text" autocomplete="address-level2"></div>
+          </div>
+          <ul class="quote__lines" aria-live="polite"><li class="quote__empty">Elige un servicio para ver el estimado.</li></ul>
+          <div class="quote__total"><span>Estimado desde</span><strong data-total>$0</strong></div>
+          <p class="t-small quote__note">Antes de IVA. Confirmamos el valor final con el área exacta y el acceso a la finca.</p>
+          <div class="btn-row"><button class="btn btn--primary" type="submit">Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></button></div>
+          <p class="form__status t-small" role="status" data-q-status></p>
         </div>
-        <div class="frame frame--photo span-6 start-7 campo__pic">
-          <img loading="lazy" class="frame__img" src="assets/img/agro-sig.webp" srcset="assets/img/agro-sig-640.webp 640w, assets/img/agro-sig-960.webp 960w, assets/img/agro-sig.webp 1290w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 628px" width="1290" height="641" alt="Finca vista desde el aire con mapas de topografía y drenajes, agricultura de precisión, diseño de cultivos, diagnóstico predial y ganadería de precisión" data-source="client" data-subject="drones y SIG">
-        </div>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -487,6 +496,7 @@
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
 <script src="asistente.js" defer></script>
+<script src="cotizador.js" defer></script>
 <script>
 // hidden pictures (the services list's other photos, the Drones menu photo) load before they are needed:
 // when the services section comes near, and when the pointer reaches the menu

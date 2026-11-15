@@ -1,0 +1,70 @@
+/* the farm services quote builder: selectable service cards beside a live estimate */
+.quote { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); align-items: start; }
+.quote__opts { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: var(--s-3); }
+.quote__legend { font-size: var(--t-small); color: var(--muted); padding: 0; margin-bottom: var(--s-1); }
+.opt { position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: var(--s-4); min-height: 72px; padding: var(--s-4) var(--s-5); border: 1px solid var(--line, rgba(0,0,0,.12)); border-radius: var(--r-md); background: var(--bg); cursor: pointer; transition: border-color 160ms ease, box-shadow 200ms var(--ease-out), transform 160ms var(--ease-out); }
+.opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.opt__box { width: 22px; height: 22px; border: 1.5px solid var(--ink); border-radius: 6px; display: grid; place-items: center; transition: background-color 160ms ease, border-color 160ms ease; }
+.opt__box::after { content: ""; width: 10px; height: 6px; border-left: 2px solid var(--action-ink, #fff); border-bottom: 2px solid var(--action-ink, #fff); transform: translateY(-1px) rotate(-45deg) scale(0.6); opacity: 0; transition: opacity 160ms ease, transform 200ms var(--ease-out); }
+.opt__txt { display: grid; gap: 2px; min-width: 0; }
+.opt__txt b { font-weight: 500; font-size: 16px; }
+.opt__txt small, .opt__price small { font-size: var(--t-small); color: var(--muted); }
+.opt__price { display: grid; justify-items: end; font-weight: 500; font-size: 17px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.opt.is-on { border-color: var(--action); box-shadow: 0 0 0 1px var(--action), 0 14px 30px -22px rgba(208,16,111,.6); }
+.opt.is-on .opt__box { background: var(--action); border-color: var(--action); }
+.opt.is-on .opt__box::after { opacity: 1; transform: translateY(-1px) rotate(-45deg) scale(1); }
+.opt:active { transform: scale(0.99); }
+.opt:has(input:focus-visible) { outline: 2px solid var(--action); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .opt:not(.is-on):hover { border-color: var(--ink); } }
+.quote__opts.is-invalid .opt { border-color: #b3261e; }
+.quote__card { display: grid; gap: var(--s-4); padding: var(--s-6); border-radius: var(--r-lg); background: var(--ink); color: var(--bg); box-shadow: 0 30px 60px -36px rgba(0,0,0,.55); }
+.quote__card .muted, .quote__card .t-small { color: color-mix(in oklab, var(--bg) 78%, transparent); }
+.quote__fields { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+.quote__card .field { display: grid; gap: var(--s-2); }
+.quote__card label { font-size: 14px; }
+.quote__card input { height: 48px; padding: 0 var(--s-4); font: 400 16px var(--font-text); border-radius: var(--r-sm); border: 1px solid color-mix(in oklab, var(--bg) 30%, transparent); background: color-mix(in oklab, var(--bg) 8%, transparent); color: var(--bg); width: 100%; min-width: 0; }
+.quote__card input:focus-visible { outline: 2px solid var(--action); outline-offset: 1px; }
+.quote__card input[aria-invalid="true"] { border-color: #ff8a80; }
+.quote__card .field__error { color: #ffb4ab; font-size: 14px; margin: 0; }
+.quote__opts .field__error { color: #b3261e; font-size: 14px; margin: 0; }
+.quote__lines { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); border-top: 1px solid color-mix(in oklab, var(--bg) 18%, transparent); padding-top: var(--s-4); min-height: 48px; }
+.quote__lines li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-4); }
+.quote__name { display: grid; gap: 2px; font-weight: 500; }
+.quote__name small { font-weight: 400; font-size: 13px; color: color-mix(in oklab, var(--bg) 70%, transparent); }
+.quote__value { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.quote__empty { color: color-mix(in oklab, var(--bg) 70%, transparent); font-size: 15px; }
+.quote__lines li:not(.quote__empty) { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+@starting-style { .quote__lines li:not(.quote__empty) { opacity: 0; transform: translateY(4px); } }
+.quote__total { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid color-mix(in oklab, var(--bg) 18%, transparent); padding-top: var(--s-4); }
+.quote__total strong { font: var(--display-weight) var(--t-stat)/1 var(--font-display); letter-spacing: var(--display-tracking); font-variant-numeric: tabular-nums; }
+.quote__note { margin: 0; }
+.quote__card .btn { width: 100%; justify-content: center; }
+.quote__card .form__status { margin: 0; min-height: 1em; }
+@media (prefers-reduced-motion: reduce) { .opt, .opt__box::after, .quote__lines li { transition: none; } @starting-style { .quote__lines li:not(.quote__empty) { transform: none; } } }
+@media (max-width: 1023px) { .quote__card { margin-top: var(--s-6); } }
+@media (max-width: 639px) { .opt { grid-template-columns: 22px minmax(0, 1fr); } .opt__price { grid-column: 2; justify-items: start; } .quote__fields { grid-template-columns: 1fr; } .quote__card { padding: var(--s-5); } }
+/* explicit sizes inside the estimate card (it sits in a grid that would hand it heading sizes) */
+.quote__card { gap: var(--s-3); padding: var(--s-5) var(--s-6); }
+.quote__card, .quote__card label, .quote__card li, .quote__name, .quote__value, .quote__total span { font-size: 16px; line-height: 1.4; letter-spacing: 0; }
+.quote__name { font-weight: 500; }
+.quote__value { font-weight: 500; }
+.quote__total span { color: color-mix(in oklab, var(--bg) 78%, transparent); }
+.quote__total strong { font-size: 36px; }
+.quote__lines, .quote__total { padding-top: var(--s-3); }
+.quote__card .t-small { font-size: 14px; letter-spacing: 0; }
+.opt { min-height: 64px; padding: var(--s-3) var(--s-5); }
+.opt__txt small, .opt__price small { letter-spacing: 0; }
+@media (max-width: 639px) { .opt { min-height: 60px; padding: var(--s-3) var(--s-4); gap: var(--s-3); } .quote__opts { gap: var(--s-2); } }
+/* each service: checkbox, its icon, the words, the price; white cards so they read as cards on the page ground */
+.opt { grid-template-columns: 22px 28px minmax(0, 1fr) auto; background: #fff; }
+.opt__ic { width: 24px; height: 24px; opacity: .85; }
+.opt.is-on .opt__ic { opacity: 1; }
+@media (max-width: 639px) { .opt { grid-template-columns: 22px 24px minmax(0, 1fr); } .opt__price { grid-column: 3; } }
+.opt input { left: 0; top: 0; margin: 0; }
+/* on a phone the services read as a ruled list, the checkbox and the accent name marking what is chosen */
+@media (max-width: 639px) {
+  .quote__opts { gap: 0; }
+  .opt { border: 0; border-bottom: 1px solid var(--line, rgba(0,0,0,.12)); border-radius: 0; background: transparent; box-shadow: none; padding: var(--s-4) 0; }
+  .opt.is-on { box-shadow: none; border-color: var(--line, rgba(0,0,0,.12)); }
+  .opt.is-on .opt__txt b { color: var(--action); }
+}

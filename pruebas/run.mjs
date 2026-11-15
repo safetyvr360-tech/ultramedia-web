@@ -57,7 +57,8 @@ test('S05', 'WhatsApp de Jason en todos los botones y en el chat; sin el número
   if (!links.length) out.push('no hay enlaces de WhatsApp');
   for (const n of links) if (n !== WA) out.push(`enlace a ${n}`);
   if (!js.includes(`WA_NUMBER = '${WA}'`)) out.push('asistente.js no usa el número de Jason');
-  for (const f of [...PAGES, 'asistente.js', 'chat.php']) if (read(f).includes('5492604094484')) out.push(`${f} aún tiene el número viejo`);
+  if (!read('cotizador.js').includes(`WA_NUMBER = '${WA}'`)) out.push('cotizador.js no usa el número de Jason');
+  for (const f of [...PAGES, 'asistente.js', 'cotizador.js', 'chat.php']) if (read(f).includes('5492604094484')) out.push(`${f} aún tiene el número viejo`);
   return out;
 });
 
@@ -85,7 +86,8 @@ test('S08', 'Todas las imágenes tienen alt; las de contenido, con texto', () =>
   for (const m of tags(read('index.html'), /<img\s[^>]*>/g)) {
     const t = m[0];
     if (!/\salt="/.test(t)) out.push(`sin alt: ${t.slice(0, 80)}`);
-    else if (/alt=""/.test(t) && !/class="ic\b/.test(t)) out.push(`alt vacío en imagen de contenido: ${t.slice(0, 80)}`);
+    // decorative icons (tool marks, the quote builder's service icons) take an empty alt on purpose
+    else if (/alt=""/.test(t) && !/class="(ic\b|opt__ic)/.test(t)) out.push(`alt vacío en imagen de contenido: ${t.slice(0, 80)}`);
   }
   return out;
 });
@@ -113,8 +115,9 @@ test('S10', 'Sin restos de plantilla (corchetes, TODO, lorem)', () => {
 });
 
 test('S11', 'JavaScript sin errores de sintaxis', () => {
-  const r = spawnSync(process.execPath, ['--check', 'asistente.js'], { encoding: 'utf8' });
-  return r.status === 0 ? [] : [r.stderr.trim()];
+  const out = [];
+  for (const f of ['asistente.js', 'cotizador.js']) { const r = spawnSync(process.execPath, ['--check', f], { encoding: 'utf8' }); if (r.status !== 0) out.push(r.stderr.trim()); }
+  return out;
 });
 
 test('S12', 'chat.php: protegido y sin la clave en el código', () => {

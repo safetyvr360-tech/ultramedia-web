@@ -26,6 +26,7 @@ assets/icons/*
 !assets/icons/meta.svg
 !assets/icons/unrealengine.svg
 !assets/icons/icons-credits.json
+!assets/icons/ui-*.svg
 !assets/moments/
 assets/moments/*
 !assets/moments/moments.js

@@ -46,9 +46,64 @@
     "trademark": false
   },
   {
+    "file": "ui-layout-grid.svg",
+    "icon": "ui:layout-grid",
+    "name": "Layout Grid",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
     "file": "ui-map-pin.svg",
     "icon": "ui:map-pin",
     "name": "Map Pin",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-map.svg",
+    "icon": "ui:map",
+    "name": "Map",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-mountain.svg",
+    "icon": "ui:mountain",
+    "name": "Mountain",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-scan-eye.svg",
+    "icon": "ui:scan-eye",
+    "name": "Scan Eye",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-sprout.svg",
+    "icon": "ui:sprout",
+    "name": "Sprout",
     "kind": "line",
     "source": "@iconify-json/lucide@1.2.100",
     "author": "Lucide Contributors",
