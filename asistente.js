@@ -141,7 +141,7 @@
       body: JSON.stringify({ messages: history.slice(-MAX_TURNS * 2) }), signal: ctrl ? ctrl.signal : undefined
     }).then(function (r) {
       clearTimeout(timer);
-      if (r.status === 404 || r.status === 503) aiOff = true;
+      if (r.status === 404 || r.status === 405 || r.status === 503) aiOff = true; // no server script here (a static host answers 404 or 405), or no key yet
       return r.ok ? r.json() : null;
     }).then(function (j) { return j && j.ok && j.reply ? j : null; })
       .catch(function () { clearTimeout(timer); return null; });
