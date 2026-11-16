@@ -8,7 +8,7 @@ Incluye un asistente de chat que responde a cualquier hora y pasa a WhatsApp.
 
 Estado: avance del 15 de noviembre de 2026, para recibir comentarios del cliente. La página toma la estructura de
 neuralframe.art (inicio dividido con el tour en tarjeta, cifras y servicios en tarjetas con ícono) con los colores
-y la tipografía propios de Ultramedia. El chat responde con datos guardados
+y la tipografía propios de Ultramedia, sobre fondos técnicos (cuadrícula de plano, curvas de nivel y circuito). El chat responde con datos guardados
 mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting final responde con IA.
 
 ## Cómo se ve
