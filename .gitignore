@@ -38,3 +38,5 @@ assets/motion/*.html
 !assets/fondos/
 !assets/ui/base.css
 !assets/ui/chat/
+assets/ui/chat/fragment.html
+assets/ui/chat/meta.json
