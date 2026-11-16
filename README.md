@@ -23,9 +23,9 @@ mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting f
 ![Cotizador de drones y SIG para fincas con el estimado calculado](capturas/cotizador.png)
 
 ### Detalles
-| Menú de drones | Asistente | Términos y condiciones |
+| Menú de servicios | Asistente | Términos y condiciones |
 | --- | --- | --- |
-| ![Menú desplegable de drones](capturas/menu-drones.png) | ![El asistente respondiendo una pregunta](capturas/chat.png) | ![Página de términos y condiciones](capturas/terminos.png) |
+| ![Menú de servicios con las cuatro líneas explicadas](capturas/menu-drones.png) | ![El asistente respondiendo una pregunta](capturas/chat.png) | ![Página de términos y condiciones](capturas/terminos.png) |
 
 ## Qué tiene la página
 

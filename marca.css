@@ -219,3 +219,7 @@ p.eyebrow.eyebrow { font: 500 13px/1.2 var(--font-mono); letter-spacing: .06em; 
 @media (max-width: 639px) { p.eyebrow.eyebrow { margin-bottom: 6px; } }
 @media (max-width: 639px) { #faq p.eyebrow.eyebrow, #asistente p.eyebrow.eyebrow { display: none; } }
 @media (max-width: 639px) { #estudio.tex::before { display: none; } }
+
+/* mega menu: each line of business with a sentence under it */
+.nav__menu .menu-col a span { line-height: 1.4; }
+.nav__menu .t-label { color: var(--accent); }
