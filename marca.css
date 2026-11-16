@@ -181,3 +181,11 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
 .hero-card__hud { container-type: size; }
 .hero-card__hud::before { --scan-h: 100cqh; }
 @media (prefers-reduced-motion: reduce) { .hero-card__hud::before { animation: none; display: none; } }
+
+/* icon chips fill with the accent when their card is under the pointer */
+.chip { transition: background-color 220ms var(--u-ease), color 220ms var(--u-ease), transform 220ms var(--u-ease); }
+@media (hover: hover) and (pointer: fine) {
+  .rows > li:hover > .chip, .fig:hover .chip { background: var(--accent); color: #fff; transform: rotate(-4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
