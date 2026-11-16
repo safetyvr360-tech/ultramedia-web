@@ -154,3 +154,11 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
   .rows > li, .card.card--open, .faq .faq__item, .fig { background-image: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px), color-mix(in oklab, var(--accent) 7%, transparent), transparent 70%); }
   .ground-inverse .rows > li, .ground-inverse .card.card--open { background-image: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px), color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%); }
 }
+
+/* a magenta glow behind the right column (the chat, the closing call) */
+.tex--glow::after { content: ""; position: absolute; z-index: -1; pointer-events: none; right: 0; top: 0; width: 55%; height: 70%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 16%, transparent), transparent); filter: blur(24px); }
+.tex--glow { overflow-x: clip; }
+#inmobiliarias { --tex-o: .05; }
+.footer.tex { --tex-o: .06; --tex-fade: linear-gradient(180deg, #000, transparent 75%); }
+.footer.tex--glow::after { width: 45%; height: 45%; background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 26%, transparent), transparent); }
