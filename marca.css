@@ -189,3 +189,14 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
 }
 
 @media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
+
+/* drone photos framed like the camera's viewfinder: four white corners and a crosshair */
+#drones .frame--photo { position: relative; }
+#drones .frame--photo::after { content: ""; position: absolute; inset: 14px; pointer-events: none; z-index: 1; opacity: .9;
+  background:
+    linear-gradient(#fff, #fff) top left / 18px 2px no-repeat, linear-gradient(#fff, #fff) top left / 2px 18px no-repeat,
+    linear-gradient(#fff, #fff) top right / 18px 2px no-repeat, linear-gradient(#fff, #fff) top right / 2px 18px no-repeat,
+    linear-gradient(#fff, #fff) bottom left / 18px 2px no-repeat, linear-gradient(#fff, #fff) bottom left / 2px 18px no-repeat,
+    linear-gradient(#fff, #fff) bottom right / 18px 2px no-repeat, linear-gradient(#fff, #fff) bottom right / 2px 18px no-repeat; }
+#drones .frame--photo::before { content: ""; position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; translate: -50% -50%; z-index: 1; pointer-events: none; opacity: .75;
+  background: linear-gradient(#fff, #fff) center / 26px 1.5px no-repeat, linear-gradient(#fff, #fff) center / 1.5px 26px no-repeat; border-radius: 50%; }
