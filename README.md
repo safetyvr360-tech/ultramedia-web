@@ -6,7 +6,9 @@ Incluye un asistente de chat que responde a cualquier hora y pasa a WhatsApp.
 
 **Ver la web en vivo: https://safetyvr360-tech.github.io/ultramedia-web/**
 
-Estado: avance del 14 de noviembre de 2026, para recibir comentarios del cliente. El chat responde con datos guardados
+Estado: avance del 15 de noviembre de 2026, para recibir comentarios del cliente. El diseño sigue la línea de
+neuralframe.art: fondo azul noche, títulos con una frase en cian, red de puntos animada en el inicio y tarjetas
+de vidrio con íconos. El chat responde con datos guardados
 mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting final responde con IA.
 
 ## Cómo se ve
