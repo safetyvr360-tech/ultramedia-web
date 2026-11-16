@@ -162,3 +162,13 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
 #inmobiliarias { --tex-o: .05; }
 .footer.tex { --tex-o: .06; --tex-fade: linear-gradient(180deg, #000, transparent 75%); }
 .footer.tex--glow::after { width: 45%; height: 45%; background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 26%, transparent), transparent); }
+
+/* team: a portrait leans in under the pointer and shows a magenta rule */
+.tile--portrait .tile__media { position: relative; overflow: hidden; }
+.tile--portrait .tile__media img { transition: transform 500ms var(--u-ease); }
+.tile--portrait .tile__media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 400ms var(--u-ease); }
+@media (hover: hover) and (pointer: fine) {
+  .tile--portrait:hover .tile__media img { transform: scale(1.04); }
+  .tile--portrait:hover .tile__media::after { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) { .tile--portrait .tile__media img, .tile--portrait .tile__media::after { transition: none; } }
