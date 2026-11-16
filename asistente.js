@@ -1,4 +1,4 @@
-// Ultramedia: the chat assistant, inline in #asistente (adapted from the Neural Frames chat).
+// Ultramedia: the chat assistant, a floating button on every page that opens the chat (adapted from the Neural Frames chat).
 // It asks /chat.php (Claude) first; when the server has no key, is offline, or the page runs locally,
 // it answers from Ultramedia's own facts below. Mon-Fri 8 a.m.-6 p.m. (Colombia) it offers a person on WhatsApp.
 (function () {
@@ -13,8 +13,32 @@
   // keep every WhatsApp button on the page on the same number
   document.querySelectorAll('a[data-wa]').forEach(function (a) { a.href = 'https://wa.me/' + WA_NUMBER; });
 
-  var host = document.querySelector('[data-chat]');
-  if (!host) return;
+  // the floating launcher and its panel; the conversation is kept per tab, so it follows the visitor between pages
+  var fab = document.createElement('button');
+  fab.type = 'button'; fab.className = 'chatfab'; fab.setAttribute('aria-expanded', 'false'); fab.setAttribute('aria-controls', 'um-chat');
+  fab.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 9.5h7M8.5 12.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="chatfab__label">Chatea con nosotros</span>';
+  var panel = document.createElement('div');
+  panel.className = 'chatpanel'; panel.id = 'um-chat'; panel.hidden = true; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat con el asistente de Ultramedia');
+  panel.innerHTML = '<button type="button" class="chatpanel__close" aria-label="Cerrar el chat"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button><div data-chat></div>';
+  var foot = document.querySelector('footer.closing') || document.body;
+  foot.appendChild(panel); foot.appendChild(fab);
+  var bar = document.querySelector('nav.actionbar'), barBtn = null;
+  if (bar) {
+    barBtn = document.createElement('button'); barBtn.type = 'button'; barBtn.className = 'btn btn--secondary chatbar';
+    barBtn.setAttribute('aria-controls', 'um-chat'); barBtn.setAttribute('aria-expanded', 'false');
+    barBtn.innerHTML = fab.querySelector('svg').outerHTML + '<span>Chat</span>';
+    bar.appendChild(barBtn);
+  }
+  var host = panel.querySelector('[data-chat]');
+  function show(on) {
+    panel.hidden = !on; fab.setAttribute('aria-expanded', String(on)); if (barBtn) barBtn.setAttribute('aria-expanded', String(on)); document.documentElement.classList.toggle('chat-open', on);
+    if (on) { var i = panel.querySelector('input'); if (i && matchMedia('(pointer: fine)').matches) i.focus(); } else (fab.offsetParent ? fab : (barBtn || fab)).focus();
+  }
+  fab.addEventListener('click', function () { show(panel.hidden); });
+  if (barBtn) barBtn.addEventListener('click', function () { show(panel.hidden); });
+  panel.querySelector('.chatpanel__close').addEventListener('click', function () { show(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) show(false); });
+  document.querySelectorAll('[data-chat-open]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); show(true); }); });
 
   function nowCO() {
     try {
@@ -34,7 +58,7 @@
   }
   var SKYDECK = { label: 'Pedir un vuelo en SkyDeck', href: 'https://skydeck.dronesbaq.com' };
   var FICHA = { label: 'Ficha técnica (PDF)', href: 'http://dronesbaq.com/wp-content/uploads/2026/10/Servicios_Termograficos_Drones_Barranquilla_peq.pdf' };
-  var PROYECTOS = { label: 'Ver los proyectos', href: '#proyectos' };
+  var PROYECTOS = { label: 'Ver los proyectos', href: 'index.html#proyectos' };
 
   // answers from Ultramedia's facts (used when the AI is not available)
   var FACTS = [
@@ -43,7 +67,7 @@
     { k: ['termograf', 'termic', 'solar', 'panel', 'fotovolta', 'industrial', 'industria', 'subestacion', 'red electrica', 'redes electricas', 'cubierta', 'techo', 'inspeccion'],
       a: 'Hacemos termografía aérea con drones para paneles solares, infraestructura industrial, redes eléctricas y edificaciones o cubiertas. Detecta anomalías térmicas antes de que causen pérdidas o paradas. Se cotiza según el sitio; la ficha técnica tiene el detalle.', wa: true, x: [FICHA] },
     { k: ['topograf', 'conteo de ganado', 'finca', 'campo', 'predio', 'hacienda', 'agricultura', 'cultivo', 'siembra', 'ndvi', 'multiespectral', 'ganado', 'ganaderia', 'vacas', 'potrero', 'drenaje', 'curvas de nivel', 'sig'],
-      a: 'Para fincas hacemos drones y SIG (precios de lanzamiento, antes de IVA): topografía y drenajes desde $160.000 por hectárea (mínimo $1.800.000), agricultura de precisión con mapa NDVI desde $190.000 por hectárea por vuelo (mínimo 10 ha), diseño de cultivos desde $2.500.000 (hasta 20 ha), diagnóstico predial desde $2.200.000 (hasta 10 ha) y ganadería de precisión desde $1.500.000 por visita (hasta 50 ha).', wa: true, x: [{ label: 'Ver drones para fincas', href: '#campo' }] },
+      a: 'Para fincas hacemos drones y SIG (precios de lanzamiento, antes de IVA): topografía y drenajes desde $160.000 por hectárea (mínimo $1.800.000), agricultura de precisión con mapa NDVI desde $190.000 por hectárea por vuelo (mínimo 10 ha), diseño de cultivos desde $2.500.000 (hasta 20 ha), diagnóstico predial desde $2.200.000 (hasta 10 ha) y ganadería de precisión desde $1.500.000 por visita (hasta 50 ha).', wa: true, x: [{ label: 'Ver drones para fincas', href: 'servicios.html#campo' }] },
     { k: ['skydeck', 'obra', 'avance', 'seguimiento', 'constructora', 'vuelo', 'piloto'],
       a: 'Para obras usamos SkyDeck: un piloto verificado de la zona vuela la obra y cada visita queda guardada para compararla. Avance de obra: 1 vuelo al mes, unos $1.000.000 al mes por obra. Seguimiento: 2 vuelos al mes con modelos 3D y mediciones, unos $1.800.000. Constructora: a medida. Precios antes de IVA; también hay vuelos sueltos.', x: [SKYDECK] },
     { k: ['drone', 'dron', 'aereo', 'aerea', 'ortomosaico', 'hidrolog', 'mapa'],
@@ -55,13 +79,13 @@
     { k: ['aumentada', 'ar ', 'tablet'],
       a: 'Con realidad aumentada ves el modelo a escala sobre el terreno o sobre una mesa, desde una tablet o un celular.', wa: true },
     { k: ['inmobiliaria', 'propiedad', 'propiedades', 'marketing', 'meta ads', 'loteo', 'lote', 'masterplan'],
-      a: 'Para inmobiliarias usamos el método de Estudio FBX: diagnóstico (1 semana), plan de acción (1 semana), ejecución (8 a 12 semanas) y mantenimiento. Incluye fotografía HDR, tour 360°, video, drone y Masterplan 360 para loteos. El contrato mínimo es de 6 meses.', wa: true, x: [{ label: 'Ver el método', href: '#inmobiliarias' }] },
+      a: 'Para inmobiliarias usamos el método de Estudio FBX: diagnóstico (1 semana), plan de acción (1 semana), ejecución (8 a 12 semanas) y mantenimiento. Incluye fotografía HDR, tour 360°, video, drone y Masterplan 360 para loteos. El contrato mínimo es de 6 meses.', wa: true, x: [{ label: 'Ver el método', href: 'servicios.html#inmobiliarias' }] },
     { k: ['precio', 'precios', 'cuanto', 'cuesta', 'valor', 'tarifa', 'cotiza', 'cotizacion', 'presupuesto'],
       a: 'Los planes de SkyDeck para obra son de unos $1.000.000 y $1.800.000 al mes por obra. La visualización 3D, la termografía y el marketing inmobiliario se cotizan según el proyecto. Escríbenos por WhatsApp con lo que necesitas.', wa: true, g: true },
     { k: ['proyecto', 'proyectos', 'portafolio', 'ejemplo', 'trabajos'],
       a: 'Algunos proyectos: Plaza Urbina en Ambato, Casa San Martín, Box House, Rivendel Lodge y el Fuerte San Rafael del Diamante, hecho con el Municipio de San Rafael y el CONICET.', x: [PROYECTOS] },
     { k: ['equipo', 'quienes', 'jason', 'matias', 'arquitect'],
-      a: 'Ultramedia la dirige Jason Carrero. En el equipo hay arquitectos para diseño, documentación y BIM, y Matías Carrisi en modelado 3D, Unreal Engine y tours.', x: [{ label: 'Ver el equipo', href: '#equipo' }] },
+      a: 'Ultramedia la dirige Jason Carrero. En el equipo hay arquitectos para diseño, documentación y BIM, y Matías Carrisi en modelado 3D, Unreal Engine y tours.', x: [{ label: 'Ver el equipo', href: 'nosotros.html#equipo' }] },
     { k: ['donde', 'ubicad', 'ciudad', 'barranquilla', 'pais', 'paises'],
       a: 'Estamos en Barranquilla, Colombia, y hemos trabajado en Colombia, Argentina, España y Estados Unidos. Las reuniones pueden ser por videollamada.' },
     { k: ['contacto', 'whatsapp', 'telefono', 'llamar', 'correo', 'email', 'persona', 'humano', 'asesor'],
@@ -87,7 +111,7 @@
 
   host.innerHTML =
     '<div class="chat">' +
-    '<div class="chat__head"><span class="chat__av" aria-hidden="true"><span class="mark" data-mark="ring"></span></span><div><b>Asistente de Ultramedia</b><span class="chat__status"><i class="chat__live" aria-hidden="true"></i><span class="chat__status-text"></span></span></div></div>' +
+    '<div class="chat__head"><span class="chat__av" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span><div><b>Asistente de Ultramedia</b><span class="chat__status"><i class="chat__live" aria-hidden="true"></i><span class="chat__status-text"></span></span></div></div>' +
     '<div class="chat__log" aria-live="polite"></div>' +
     
     '<form class="chat__form"><label class="chat__label" for="um-q">Tu pregunta</label>' +

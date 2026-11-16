@@ -81,8 +81,10 @@ try {
   // B06: the chat
   // a slow server with no key yet: the chat must lock while it waits, then answer from its own facts
   await page.route('**/chat.php', async r => { await new Promise(x => setTimeout(x, 500)); await r.fulfill({ status: 500, body: '{}' }); });
-  await page.locator('#asistente').scrollIntoViewIfNeeded();
   const chat = [];
+  if (!(await page.locator('#um-chat').isHidden())) chat.push('el chat empieza abierto');
+  await page.click('.chatfab');
+  if (!(await page.locator('#um-chat').isVisible())) chat.push('el botón flotante no abre el chat');
   for (const [q, re] of [['¿Hacen termografía de paneles solares?', /termografía/i], ['planes de SkyDeck', /1\.000\.000/], ['quiero hablar con una persona', /WhatsApp/]]) {
     await page.fill('#um-q', q); await page.press('#um-q', 'Enter');
     const busy = await page.locator('.chat__send').isDisabled();
@@ -93,7 +95,9 @@ try {
   }
   const wa = await page.locator('.chat__act--wa').first().getAttribute('href');
   if (!wa || !wa.startsWith('https://wa.me/573006242963')) chat.push('el botón de WhatsApp del chat no va a Jason');
-  add('B06', 'El chat responde, se bloquea mientras contesta y lleva a WhatsApp', chat);
+  await page.keyboard.press('Escape');
+  if (!(await page.locator('#um-chat').isHidden())) chat.push('Escape no cierra el chat');
+  add('B06', 'El chat flotante abre, responde, se bloquea mientras contesta, lleva a WhatsApp y cierra con Escape', chat);
 
   // B07: the nav menu opens on hover and the phone menu toggles
   const nav = [];
@@ -109,7 +113,7 @@ try {
   // B09: the quote builder: asks for what is missing, adds up right, opens WhatsApp with the quote
   const q = [];
   const qp = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await qp.goto(URL, { waitUntil: 'networkidle' });
+  await qp.goto(URL.replace(/[^/]*$/, '') + 'servicios.html', { waitUntil: 'networkidle' });
   await qp.evaluate(() => { window.__opened = []; window.open = (u) => { window.__opened.push(u); return {}; }; });
   await qp.locator('#cotizador').scrollIntoViewIfNeeded();
   await qp.click('#cotizador button[type="submit"]');
@@ -131,7 +135,7 @@ try {
   for (const must of ['Topografía y drenajes', 'Ganadería de precisión', '30 ha', 'Sabanalarga', '6.300.000']) if (!text.includes(must)) q.push('el mensaje no incluye ' + must);
   await qp.close();
   const qm = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  await qm.goto(URL, { waitUntil: 'networkidle' });
+  await qm.goto(URL.replace(/[^/]*$/, '') + 'servicios.html', { waitUntil: 'networkidle' });
   await qm.locator('#cotizador').scrollIntoViewIfNeeded();
   await qm.click('.opt:has(input[value="agro"])'); await qm.fill('#q-ha', '8');
   const t3 = (await qm.locator('[data-total]').innerText()).replace(/\s/g, '');

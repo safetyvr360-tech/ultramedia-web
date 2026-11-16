@@ -6,7 +6,7 @@ import { join } from 'node:path';
 
 const KIT = 'C:/Users/USER/.claude/skills/design-taste-frontend';
 const WA = '573006242963';
-const PAGES = ['index.html', 'privacidad.html', 'terminos.html', 'creditos.html', '404.html'];
+const PAGES = ['index.html', 'servicios.html', 'nosotros.html', 'privacidad.html', 'terminos.html', 'creditos.html', '404.html'];
 const fast = process.argv.includes('--rapido');
 const results = [];
 const test = (id, name, fn) => {
@@ -33,15 +33,23 @@ test('S01', 'Archivos locales (src, srcset, href) existen', () => {
   return out;
 });
 
-test('S02', 'Cada enlace #ancla tiene su id', () => {
-  const h = read('index.html');
-  const ids = new Set(tags(h, /\sid="([^"]+)"/g).map(m => m[1]));
-  return tags(h, /href="#([^"]*)"/g).map(m => m[1]).filter(a => a && !ids.has(a)).map(a => `ancla rota #${a}`);
+const SITE = ['index.html', 'servicios.html', 'nosotros.html'];
+const idsOf = f => new Set(tags(read(f), /\sid="([^"]+)"/g).map(m => m[1]));
+
+test('S02', 'Cada enlace #ancla tiene su id, también entre páginas', () => {
+  const out = [];
+  for (const f of SITE) {
+    const ids = idsOf(f);
+    for (const m of tags(read(f), /href="#([^"]*)"/g)) if (m[1] && !ids.has(m[1])) out.push(`${f}: ancla rota #${m[1]}`);
+    for (const m of tags(read(f), /href="([a-z]+\.html)#([^"]+)"/g)) if (!existsSync(m[1]) || !idsOf(m[1]).has(m[2])) out.push(`${f}: ${m[1]}#${m[2]} no existe`);
+  }
+  return out;
 });
 
-test('S03', 'Ids únicos', () => {
-  const ids = tags(read('index.html'), /\sid="([^"]+)"/g).map(m => m[1]);
-  return ids.filter((x, i) => ids.indexOf(x) !== i).map(x => `id repetido ${x}`);
+test('S03', 'Ids únicos en cada página', () => {
+  const out = [];
+  for (const f of SITE) { const ids = tags(read(f), /\sid="([^"]+)"/g).map(m => m[1]); ids.filter((x, i) => ids.indexOf(x) !== i).forEach(x => out.push(`${f}: id repetido ${x}`)); }
+  return out;
 });
 
 test('S04', 'Enlaces externos con target=_blank llevan rel=noopener', () => {
@@ -94,13 +102,15 @@ test('S08', 'Todas las imágenes tienen alt; las de contenido, con texto', () =>
 
 test('S09', 'Imágenes con width y height, y lazy fuera del inicio', () => {
   const out = [];
-  const h = read('index.html');
-  const heroEnd = h.indexOf('id="servicios"');
-  for (const m of tags(h, /<img\s[^>]*>/g)) {
-    const t = m[0];
-    if (!/\swidth="\d+"/.test(t) || !/\sheight="\d+"/.test(t)) out.push(`sin tamaño: ${t.slice(0, 70)}`);
-    const peek = /data-peek-for=/.test(t), nav = m.index < h.indexOf('<main');
-    if (m.index > heroEnd && !peek && !nav && !/loading="lazy"/.test(t)) out.push(`sin lazy: ${t.slice(0, 70)}`);
+  for (const f of ['index.html', 'servicios.html', 'nosotros.html']) {
+    const h = read(f);
+    const heroEnd = h.indexOf('</section>', h.indexOf('<main'));
+    for (const m of tags(h, /<img\s[^>]*>/g)) {
+      const t = m[0];
+      if (!/\swidth="\d+"/.test(t) || !/\sheight="\d+"/.test(t)) out.push(`${f} sin tamaño: ${t.slice(0, 70)}`);
+      const peek = /data-peek-for=/.test(t), nav = m.index < h.indexOf('<main');
+      if (m.index > heroEnd && !peek && !nav && !/loading="lazy"/.test(t)) out.push(`${f} sin lazy: ${t.slice(0, 70)}`);
+    }
   }
   return out;
 });
@@ -179,6 +189,11 @@ if (!fast) {
   run('K01', 'Textos (copy-lint): 0 FAIL; solo la advertencia de la franja de cifras reales', [join(KIT, 'scripts/copy-lint.mjs'), 'index.html', '--kind', 'service'], t => / 0 FAIL, (0 WARN|1 WARN)/.test(t) && (!/1 WARN/.test(t) || /copy-stat-strip/.test(t)));
   run('K02', 'Diseño en 1440, 1024, 820, 768 y 390', [join(KIT, 'assets/layout/check.mjs'), '--url', 'index.html', '--profile', '.taste-skill/chrome-check', '--sizes', '1440x900,1024x768,820x1180,768x1024,390x844'], t => (t.match(/no findings/g) || []).length === 5);
   run('K03', 'Rendimiento (perf): sin FAIL', [join(KIT, 'scripts/perf.mjs'), 'index.html', '--profile', '.taste-skill/chrome-check'], t => !/^\s*FAIL/m.test(t));
+  for (const [n, f] of [['K04', 'servicios.html'], ['K05', 'nosotros.html']]) {
+    run(n + 'a', `${f}: textos (copy-lint) sin FAIL`, [join(KIT, 'scripts/copy-lint.mjs'), f, '--kind', 'service'], t => / 0 FAIL/.test(t) && !/copy-eyebrows/.test(t));
+    run(n + 'b', `${f}: diseño en 1440, 1024, 820, 768 y 390`, [join(KIT, 'assets/layout/check.mjs'), '--url', f, '--profile', '.taste-skill/chrome-check', '--sizes', '1440x900,1024x768,820x1180,768x1024,390x844'], t => (t.match(/no findings/g) || []).length === 5);
+    run(n + 'c', `${f}: rendimiento sin FAIL`, [join(KIT, 'scripts/perf.mjs'), f, '--profile', '.taste-skill/chrome-check'], t => !/^\s*FAIL/m.test(t));
+  }
 }
 
 let bad = 0;

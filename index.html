@@ -6,11 +6,13 @@
 <title>Ultramedia: visualización 3D, realidad virtual y drones en Barranquilla</title>
 <meta name="description" content="Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, termografía con drones para la industria y drones y SIG para fincas, desde Barranquilla.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ultramedia: visualización 3D y drones en Barranquilla">
+<meta property="og:title" content="Ultramedia: visualización 3D, realidad virtual y drones en Barranquilla">
 <meta property="og:description" content="Tours 360°, realidad virtual, marketing inmobiliario y drones para obras e industria.">
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#f7f7f5">
 <!-- <link rel="canonical" href="https://ultramedia.com.co/"> -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Ultramedia", "alternateName": "Ultramedia Tech", "url": "https://ultramedia.com.co/", "image": "https://ultramedia.com.co/share.jpg", "logo": "https://ultramedia.com.co/favicon.svg", "description": "Visualización 3D, tours 360°, realidad virtual, marketing inmobiliario y drones para obras e industria en Barranquilla.", "email": "jasonca95@gmail.com", "telephone": "+57 300 624 2963", "address": {"@type": "PostalAddress", "addressLocality": "Barranquilla", "addressRegion": "Atlántico", "addressCountry": "CO"}, "areaServed": ["Colombia", "Argentina", "España", "Estados Unidos"], "founder": {"@type": "Person", "name": "Jason Carrero"}, "sameAs": ["https://www.instagram.com/vrdev.ar/", "https://skydeck.dronesbaq.com"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Servicios", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Visualización 3D y renders"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tours 360° y realidad virtual"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Termografía aérea con drones"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguimiento de obra con drones (SkyDeck)"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marketing inmobiliario"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Topografía y drenajes con drones"}, "price": "160000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Agricultura de precisión con drones"}, "price": "190000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diseño de cultivos"}, "price": "2500000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diagnóstico predial"}, "price": "2200000", "priceCurrency": "COP"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ganadería de precisión"}, "price": "1500000", "priceCurrency": "COP"}]}}</script>
@@ -27,9 +29,9 @@
 <style>
 :root {
   --p-bg: #f7f7f5; --p-surface: #ebebe8; --p-ink: #000000; --p-muted: #666662;
-  --p-accent: #d0106f; --p-accent-ink: #ffffff; --p-action: #d0106f; --p-action-ink: #ffffff;
+  --p-accent: #2f4cda; --p-accent-ink: #ffffff; --p-action: #2f4cda; --p-action-ink: #ffffff;
   --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
-  --p-inv-accent: #d0106f; --p-inv-accent-ink: #ffffff; --p-inv-action: #d0106f; --p-inv-action-ink: #ffffff;
+  --p-inv-accent: #2f4cda; --p-inv-accent-ink: #ffffff; --p-inv-action: #2f4cda; --p-inv-action-ink: #ffffff;
   --font-display: "Space Grotesk", "Hanken Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
@@ -43,10 +45,8 @@
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
-<link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
-<link rel="stylesheet" href="asistente.css">
-<link rel="stylesheet" href="cotizador.css">
-<link rel="stylesheet" href="marca.css?v=nav1">
+<link rel="stylesheet" href="asistente.css?v=logo1">
+<link rel="stylesheet" href="marca.css?v=logo1">
 <!-- page CSS: inside visuals only -->
 <style>
   #drones .pair { display: grid; gap: var(--s-5); height: 100%; grid-template-rows: 1fr 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; }
@@ -92,8 +92,8 @@
      a faint accent light in the dark drones band */
   :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --lift: 0 1px 2px rgba(0,0,0,.05), 0 18px 40px -24px rgba(0,0,0,.35); }
   .frame--photo, .tile__media, .panel:has(> img), .develop, .close__media { box-shadow: var(--lift); }
-  .ground-inverse .frame--photo { box-shadow: 0 24px 60px -30px rgba(208,16,111,.45); }
-  @media (min-width: 1024px) { #drones { background-image: radial-gradient(60% 50% at 100% 0%, rgba(208,16,111,.16), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(255,255,255,.05), transparent 70%); } }
+  .ground-inverse .frame--photo { box-shadow: 0 24px 60px -30px rgba(47, 76, 218,.45); }
+  @media (min-width: 1024px) { #drones { background-image: radial-gradient(60% 50% at 100% 0%, rgba(47, 76, 218,.16), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(255,255,255,.05), transparent 70%); } }
   .hero__media > picture > img { animation: hero-settle 1400ms var(--ease-out) both; }
   @keyframes hero-settle { from { transform: scale(1.06); } to { transform: scale(1); } }
   @media (prefers-reduced-motion: reduce) { .hero__media > picture > img { animation: none; } }
@@ -129,60 +129,59 @@
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Saltar al contenido</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Ultramedia</a>
+    <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="assets/img/marca/logo-ultramedia-400.webp" srcset="assets/img/marca/logo-ultramedia-400.webp 400w, assets/img/marca/logo-ultramedia-800.webp 800w" sizes="168px" width="400" height="96" alt="Ultramedia Company"></a>
     <nav class="nav__links" aria-label="Principal">
       <div class="nav__item">
-        <a class="nav__link" href="#estudio">Empresa <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav__link" href="nosotros.html">Nosotros <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
               <p class="t-label">Quiénes somos</p>
-              <a href="#estudio">Ultramedia<span>Estudio de visualización 3D y drones en Barranquilla, con obra en cuatro países</span></a>
-              <a href="#inmobiliarias">Estudio FBX<span>El marketing inmobiliario que ahora es parte de Ultramedia</span></a>
+              <a href="nosotros.html#historia">Ultramedia y Estudio FBX<span>Un estudio de visualización 3D y drones que suma el marketing inmobiliario</span></a>
+              <a href="#estudio">Obra publicada<span>Cuatro países, tours abiertos al público y prensa</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">Cómo trabajamos</p>
-              <a href="#metodo">Método en cuatro etapas<span>Diagnóstico, plan, ejecución y mantenimiento</span></a>
-              <a href="#equipo">Equipo<span>Arquitectos, modeladores y producción</span></a>
+              <a href="nosotros.html#metodo">Método en cuatro etapas<span>Diagnóstico, plan, ejecución y mantenimiento</span></a>
+              <a href="nosotros.html#equipo">Equipo<span>Arquitectos, modeladores y producción</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">Ayuda</p>
               <a href="#faq">Preguntas frecuentes<span>Plazos, precios y entregables</span></a>
-              <a href="#asistente">Asistente<span>Responde a cualquier hora y pasa a WhatsApp</span></a>
+              <a href="https://wa.me/573006242963" target="_blank" rel="noopener" data-chat-open>Asistente<span>Responde a cualquier hora y pasa a WhatsApp</span></a>
             </div>
           </div>
         </div>
       </div>
       <div class="nav__item">
-        <a class="nav__link" href="#servicios">Servicios <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav__link" href="servicios.html">Servicios <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav__menu">
           <div class="wrap grid">
             <div class="menu-col span-3">
               <p class="t-label">01 · Visualización 3D</p>
-              <a href="#servicios">Renders y modelado 3D<span>Imágenes fotorrealistas desde tus planos</span></a>
-              <a href="#proyectos">Tours 360° y realidad virtual<span>Recorridos en el navegador, el celular o un visor</span></a>
+              <a href="servicios.html#servicios">Renders y modelado 3D<span>Imágenes fotorrealistas desde tus planos</span></a>
+              <a href="servicios.html#servicios">Tours 360° y realidad virtual<span>Recorridos en el navegador, el celular o un visor</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">02 · Drones industriales</p>
-              <a href="#drones">Termografía aérea<span>Paneles solares, redes eléctricas y cubiertas</span></a>
-              <a href="#drones">Mapas y modelos 3D<span>Topografía y estudios hidrológicos</span></a>
+              <a href="servicios.html#drones">Termografía aérea<span>Paneles solares, redes eléctricas y cubiertas</span></a>
+              <a href="servicios.html#drones">Mapas y modelos 3D<span>Topografía y estudios hidrológicos</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">03 · Campo y SIG</p>
-              <a href="#campo">Topografía y agricultura<span>Desde $160.000 por hectárea, con cotizador</span></a>
-              <a href="#campo">Ganadería de precisión<span>Conteo de animales y estado de potreros</span></a>
+              <a href="servicios.html#campo">Topografía y agricultura<span>Desde $160.000 por hectárea, con cotizador</span></a>
+              <a href="servicios.html#campo">Ganadería de precisión<span>Conteo de animales y estado de potreros</span></a>
             </div>
             <div class="menu-col span-3">
               <p class="t-label">04 · Obras e inmobiliarias</p>
-              <a href="#skydeck">SkyDeck<span>Un vuelo al mes para seguir cada obra</span></a>
-              <a href="#inmobiliarias">Marketing inmobiliario<span>Fotografía, tours y campañas para vender</span></a>
+              <a href="servicios.html#skydeck">SkyDeck<span>Un vuelo al mes para seguir cada obra</span></a>
+              <a href="servicios.html#inmobiliarias">Marketing inmobiliario<span>Fotografía, tours y campañas para vender</span></a>
             </div>
           </div>
         </div>
       </div>
       <div class="nav__item"><a class="nav__link" href="#proyectos">Proyectos</a></div>
       <div class="nav__item"><a class="nav__link" href="#faq">Preguntas</a></div>
-      <div class="nav__item"><a class="nav__link" href="#campo">Cotizar</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp</a>
@@ -207,7 +206,7 @@
       </div>
       <div class="hero__media hero-card span-6 start-7">
         <picture><source media="(max-width: 639px)" srcset="assets/img/fuerte-phone.webp"><img src="assets/img/fuerte.webp" srcset="assets/img/fuerte-800.webp 800w, assets/img/fuerte-1200.webp 1200w, assets/img/fuerte.webp 1600w" sizes="(max-width: 1023px) 100vw, 900px" width="1600" height="973" alt="Patio del Fuerte San Rafael del Diamante reconstruido en 3D, con muros de adobe y galerías de madera" fetchpriority="high" data-source="client" data-subject="Fuerte San Rafael"></picture>
-        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Tour 3D · 360°</p><span class="hero-badge" aria-hidden="true"><span class="mark" data-mark="ring"></span></span>
+        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Tour 3D · 360°</p><span class="hero-badge" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span>
         <a class="ly-play" href="https://estudiofbx.com/fuertesanrafael/" target="_blank" rel="noopener">
           <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span>
           <span class="ly-play__label">Recorrer el Fuerte San Rafael<small>Tour interactivo en el navegador</small></span>
@@ -216,26 +215,24 @@
     </div></div>
   </section>
 
-  <section class="section tex tex--dots" id="servicios" aria-labelledby="servicios-h">
+  <section class="section tex tex--dots" id="lineas" aria-labelledby="lineas-h">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">01 · Visualización 3D</p><h2 id="servicios-h">Servicios de visualización 3D</h2>
-        <p>Partimos de tus planos y de la información técnica del proyecto. <span class="lead-more">Trabajamos con metodología BIM: arquitectura, cálculos y documentación en un solo modelo.</span></p>
+        <h2 id="lineas-h">Nuestros servicios en 4 líneas</h2>
+        <p>Lo que hacemos, explicado por separado. Cada línea tiene su detalle, sus precios y cómo cotizar en la página de servicios.</p>
       </div>
-      <div class="grid grid--top fill" data-peek>
-        <ul class="rows span-5">
-          <li data-peek-to="modelado" tabindex="0"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5ZM3.3 7 12 12l8.7-5M12 22V12"/></svg></span><span class="rows__name">Modelado 3D</span><p>El edificio completo a partir de planos, cortes y especificaciones.</p></li>
-          <li data-peek-to="render" tabindex="0"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM21 15l-5-5L5 19"/></svg></span><span class="rows__name">Renders</span><p>Imágenes fotorrealistas y video 360° estereoscópico para la sala de ventas.</p></li>
-          <li data-peek-to="tour" tabindex="0"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM16 8l-2 6-6 2 2-6 6-2Z"/></svg></span><span class="rows__name">Tour interactivo</span><p>Recorridos que abren en el celular, el computador o un visor, con cambio de materiales.</p></li>
-          <li data-peek-to="vr" tabindex="0"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18v8h-6l-3-3-3 3H3z"/></svg></span><span class="rows__name">Realidad virtual</span><p>Recorres el proyecto a escala real antes de construirlo.</p></li>
-          <li data-peek-to="ar" tabindex="0"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M8 12l4-4 4 4-4 4z"/></svg></span><span class="rows__name">Realidad aumentada</span><p>El modelo a escala sobre el terreno o la mesa, desde una tablet.</p></li>
-        </ul>
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-5">
+          <ul class="rows lineas">
+            <li class="linea"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5ZM3.3 7 12 12l8.7-5M12 22V12"/></svg></span><a class="rows__name" href="servicios.html#servicios">Visualización 3D</a><p>Renders, tours 360° y realidad virtual para vender en planos.</p><span class="rows__value" aria-hidden="true">→</span></li>
+            <li class="linea"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><a class="rows__name" href="servicios.html#drones">Drones industriales</a><p>Termografía de paneles, redes y cubiertas, y mapas desde el aire.</p><span class="rows__value" aria-hidden="true">→</span></li>
+            <li class="linea"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2ZM9 4v14M15 6v14"/></svg></span><a class="rows__name" href="servicios.html#campo">Campo y SIG</a><p>Topografía, agricultura y ganadería de precisión, con cotizador.</p><span class="rows__value" aria-hidden="true">→</span></li>
+            <li class="linea"><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V3h10v18M14 9h6v12M8 7h2M8 11h2M8 15h2M2 21h20"/></svg></span><a class="rows__name" href="servicios.html#skydeck">Obras e inmobiliarias</a><p>Un vuelo al mes con SkyDeck y el marketing de Estudio FBX.</p><span class="rows__value" aria-hidden="true">→</span></li>
+          </ul>
+          <a class="link" href="servicios.html">Ver todos los servicios</a>
+        </div>
         <div class="frame frame--photo frame--fill span-6 start-7">
-          <img loading="lazy" class="frame__img" data-peek-for="modelado" src="assets/img/modelado.webp" srcset="assets/img/modelado-phone.webp 448w, assets/img/modelado-1200.webp 1200w, assets/img/modelado.webp 1400w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1010px" width="1400" height="933" alt="Sala de una casa modelada en 3D dentro del programa de modelado" data-source="client" data-subject="modelado 3D">
-          <img loading="lazy" class="frame__img" data-peek-for="render" src="assets/img/rendering.webp" srcset="assets/img/rendering-phone.webp 448w, assets/img/rendering-1200.webp 1200w, assets/img/rendering.webp 1400w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1010px" width="1400" height="933" alt="Render fotorrealista de una cocina con isla y barra de madera" data-source="client" data-subject="render" hidden>
-          <img loading="lazy" class="frame__img" data-peek-for="tour" src="assets/img/marble.webp" srcset="assets/img/marble-phone.webp 432w, assets/img/marble-1200.webp 1200w, assets/img/marble.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1010px" width="1600" height="900" alt="Baño en mármol del tour Marble Viewer, con ventana a la ciudad" data-source="client" data-subject="tour interactivo" hidden>
-          <img loading="lazy" class="frame__img" data-peek-for="vr" src="assets/img/vr.webp" srcset="assets/img/vr-phone.webp 288w, assets/img/vr.webp 1100w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1010px" width="1100" height="600" alt="Persona con visor de realidad virtual usando una interfaz flotante" data-source="client" data-subject="realidad virtual" hidden>
-          <img loading="lazy" class="frame__img" data-peek-for="ar" src="assets/img/ar.webp" srcset="assets/img/ar-phone.webp 432w, assets/img/ar-1200.webp 1200w, assets/img/ar.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1010px" width="1600" height="900" alt="Tablet que muestra un sofá y una mesa en realidad aumentada sobre el piso real" data-source="client" data-subject="realidad aumentada" hidden>
+          <img class="frame__img" src="assets/img/rendering.webp" srcset="assets/img/rendering-640.webp 640w, assets/img/rendering-800.webp 800w, assets/img/rendering-1200.webp 1200w, assets/img/rendering.webp 1400w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 640px" width="1400" height="933" alt="Render fotorrealista de una cocina con isla de mármol y luz cálida" loading="lazy" data-source="client" data-subject="render">
         </div>
       </div>
     </div>
@@ -291,151 +288,6 @@
     </div>
   </section>
 
-  <section class="section ground-inverse tex tex--circuit" id="drones" style="--hm: 2" aria-labelledby="drones-h">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">02 · Drones industriales</p><h2 id="drones-h">Inspección industrial con drones</h2>
-        <p>Termografía aérea para encontrar fallas térmicas antes de que causen pérdidas o paren la operación. Es la línea nueva de servicios industriales.</p>
-      </div>
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-5">
-          <ul class="rows">
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="rows__name">Paneles solares</span><p>Termografía de parques y techos solares.</p></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3V10l5 3V6l6 4v10"/></svg></span><span class="rows__name">Infraestructura industrial</span><p>Plantas, tanques y estructuras de difícil acceso.</p></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><span class="rows__name">Redes eléctricas</span><p>Líneas y subestaciones sin cortar el servicio.</p></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3zM9 21v-6h6v6"/></svg></span><span class="rows__name">Edificaciones y cubiertas</span><p>Filtraciones y pérdidas de calor en techos y fachadas.</p></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2ZM9 4v14M15 6v14"/></svg></span><span class="rows__name">Mapas, topografía e hidrología</span><p>Mapas y modelos 3D, levantamientos y estudios de agua.</p></li>
-          </ul>
-          <a class="link" href="http://dronesbaq.com/wp-content/uploads/2026/10/Servicios_Termograficos_Drones_Barranquilla_peq.pdf" target="_blank" rel="noopener">Descargar la ficha técnica (PDF)</a>
-        </div>
-        <div class="span-6 start-7 pair">
-          <div class="frame frame--photo"><img class="frame__img" src="assets/img/photo-f22926362.webp" srcset="assets/img/photo-f22926362-500.webp 500w, assets/img/photo-f22926362-960.webp 960w, assets/img/photo-f22926362.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="962" alt="Parque solar entre campos de cultivo, visto desde el aire" loading="lazy" decoding="async" data-source="stand-in" data-subject="parque solar"></div>
-          <div class="frame frame--photo"><img class="frame__img" src="assets/img/photo-f55529578.webp" srcset="assets/img/photo-f55529578-500.webp 500w, assets/img/photo-f55529578-960.webp 960w, assets/img/photo-f55529578.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="962" alt="Operario sobre una estructura metálica de gran altura en una obra de infraestructura" loading="lazy" decoding="async" data-source="stand-in" data-subject="infraestructura industrial" style="--ly-pos: 50% 40%"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section pricing tex tex--topo" id="campo" style="--hm: 2" aria-labelledby="campo-h">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">03 · Campo y SIG</p><h2 id="campo-h">Drones y SIG para fincas</h2>
-        <p>Elige lo que necesitas y el área de la finca: el estimado se calcula al momento y te lo enviamos por WhatsApp para confirmarlo.</p>
-      </div>
-      <form class="quote grid grid--top fill" id="cotizador" novalidate>
-        <fieldset class="quote__opts span-6" aria-describedby="q-svc-err">
-          <legend class="quote__legend">Servicios</legend>
-          <label class="opt"><input type="checkbox" name="svc" value="topo"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-mountain.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Topografía y drenajes</b><small>Ortofoto, curvas de nivel y drenajes. Mínimo $1.800.000.</small></span><span class="opt__price">$160.000<small>por ha</small></span></label>
-          <label class="opt"><input type="checkbox" name="svc" value="agro"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-sprout.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Agricultura de precisión</b><small>Vuelo multiespectral y mapa NDVI. Mínimo 10 ha.</small></span><span class="opt__price">$190.000<small>por ha</small></span></label>
-          <label class="opt"><input type="checkbox" name="svc" value="diseno"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-layout-grid.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Diseño de cultivos</b><small>Lotes, surcos y drenajes. Hasta 20 ha.</small></span><span class="opt__price">$2.500.000<small>por finca</small></span></label>
-          <label class="opt"><input type="checkbox" name="svc" value="predial"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-map.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Diagnóstico predial</b><small>Áreas, linderos de referencia y usos del suelo. Hasta 10 ha.</small></span><span class="opt__price">$2.200.000<small>por predio</small></span></label>
-          <label class="opt"><input type="checkbox" name="svc" value="ganado"><span class="opt__box" aria-hidden="true"></span><img class="opt__ic" src="assets/icons/ui-scan-eye.svg" alt="" width="24" height="24" loading="lazy"><span class="opt__txt"><b>Ganadería de precisión</b><small>Conteo de animales y estado de potreros.</small></span><span class="opt__price">$1.500.000<small>cada 50 ha</small></span></label>
-          <p class="field__error" id="q-svc-err" hidden>Elige al menos un servicio.</p>
-        </fieldset>
-        <div class="quote__card span-6 start-7">
-          <div class="quote__fields">
-            <div class="field"><label for="q-ha">Área de la finca (hectáreas)</label>
-              <input id="q-ha" name="ha" type="text" inputmode="decimal" autocomplete="off" required aria-describedby="q-ha-err">
-              <p class="field__error" id="q-ha-err" hidden>Escribe el área en hectáreas, por ejemplo 25.</p></div>
-            <div class="field"><label for="q-mun">Municipio <span class="muted">(opcional)</span></label>
-              <input id="q-mun" name="municipio" type="text" autocomplete="address-level2"></div>
-          </div>
-          <ul class="quote__lines" aria-live="polite"><li class="quote__empty">Elige un servicio para ver el estimado.</li></ul>
-          <div class="quote__total"><span>Estimado desde</span><strong data-total>$0</strong></div>
-          <p class="t-small quote__note">Antes de IVA. Confirmamos el valor final con el área exacta y el acceso a la finca.</p>
-          <div class="btn-row"><button class="btn btn--primary" type="submit">Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></button></div>
-          <p class="form__status t-small" role="status" data-q-status></p>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <section class="section ground-surface tex tex--grid" id="skydeck" aria-labelledby="skydeck-h">
-    <div class="wrap">
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-5">
-          <div class="section-head">
-            <h2 id="skydeck-h">Seguimiento de obra con SkyDeck</h2>
-            <p>Pides el vuelo, un piloto verificado de la zona vuela la obra y cada visita queda guardada para compararla con la anterior en un solo visor.</p>
-          </div>
-          <ul class="rows">
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v16H3zM3 10h18M8 3v4M16 3v4"/></svg></span><span class="rows__name">Avance de obra</span><p>Un vuelo al mes.</p><span class="rows__value">$1.000.000</span></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5ZM2 13l10 5 10-5M2 18l10 5 10-5"/></svg></span><span class="rows__name">Seguimiento</span><p>Dos vuelos al mes, modelos 3D, mediciones y usuarios ilimitados.</p><span class="rows__value">$1.800.000</span></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V3h10v18M14 9h6v12M8 7h2M8 11h2M8 15h2M2 21h20"/></svg></span><span class="rows__name">Constructora</span><p>Varias obras y servicios especializados.</p><span class="rows__value">A medida</span></li>
-          </ul>
-          <p class="t-small">Precios mensuales por obra, en pesos, antes de IVA. También hay vuelos sueltos sin suscripción.</p>
-          <a class="link" href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">Pedir un vuelo en SkyDeck</a>
-        </div>
-        <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" src="assets/img/photo-f69306462.webp" srcset="assets/img/photo-f69306462-phone.webp 367w, assets/img/photo-f69306462.webp 1280w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) 100vw, 1100px" width="1280" height="853" alt="Drone con cámara en vuelo contra un cielo nublado" loading="lazy" decoding="async" data-source="stand-in" data-subject="drone en vuelo">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section tex tex--circuit" id="inmobiliarias" aria-labelledby="inmobiliarias-h">
-    <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">04 · Inmobiliarias</p><h2 id="inmobiliarias-h">Marketing para inmobiliarias y loteos</h2>
-          <p>El método de Estudio FBX, ahora dentro de Ultramedia: ordenamos cómo publicas, producimos cada propiedad y profesionalizamos tu marca.</p>
-        </div>
-        <div class="grid">
-          <article class="card card--row card--open span-4">
-            <h3>Revisamos cómo publicas</h3>
-            <p>Dónde aparece cada propiedad, qué se muestra y dónde se pierden consultas.</p>
-            <div class="panel"><img class="frame__img" src="assets/img/fbx-kit.webp" srcset="assets/img/fbx-kit-640.webp 640w, assets/img/fbx-kit-800.webp 800w, assets/img/fbx-kit-1200.webp 1200w, assets/img/fbx-kit.webp 1400w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 670px" width="800" height="600" alt="Drone, cámara 360°, laptop y celular con tableros de métricas de una inmobiliaria" loading="lazy" data-source="client" data-subject="análisis"></div>
-          </article>
-          <article class="card card--row card--open span-4">
-            <h3>Posicionamos tu marca</h3>
-            <p>Una comunicación constante en web y redes, con Meta Ads y analítica.</p>
-            <div class="panel"><img class="frame__img" src="assets/img/casa.webp" srcset="assets/img/casa-640.webp 640w, assets/img/casa.webp 687w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 670px" width="687" height="458" alt="Casa contemporánea de dos pisos con piscina, iluminada al atardecer" loading="lazy" data-source="client" data-subject="posicionamiento"></div>
-          </article>
-          <article class="card card--row card--open span-4">
-            <h3>Producimos cada propiedad</h3>
-            <p>Fotografía HDR, tour 360°, video, drone y Masterplan 360 para loteos, con precio y financiación por lote.</p>
-            <div class="panel"><img class="frame__img" src="assets/img/masterplan.webp" srcset="assets/img/masterplan-640.webp 640w, assets/img/masterplan-800.webp 800w, assets/img/masterplan-1200.webp 1200w, assets/img/masterplan.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 670px" width="800" height="481" alt="Loteo visto desde el aire con las manzanas marcadas por color" loading="lazy" data-source="client" data-subject="masterplan 360"></div>
-          </article>
-        </div>
-    </div>
-  </section>
-
-  <section class="section tex tex--topo" id="metodo" style="--hm: 2" aria-labelledby="metodo-h">
-    <div class="wrap">
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-5">
-          <div class="section-head"><h2 id="metodo-h">Cuatro etapas, contrato mínimo de 6 meses</h2><p>Empezamos con una visita a la inmobiliaria y cada etapa termina con algo que puedes ver: un plan, una web, propiedades digitalizadas.</p></div>
-          <ul class="rows">
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM21 21l-5-5"/></svg></span><span class="rows__name">Diagnóstico</span><p>Visitamos la inmobiliaria y revisamos sus procesos.</p><span class="rows__value">1 semana</span></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9zM6 5H5v16h14V5h-1M9 12h6M9 16h6"/></svg></span><span class="rows__name">Plan de acción</span><p>Un plan corto con plazos y prioridades.</p><span class="rows__value">1 semana</span></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l14 9-14 9V3Z"/></svg></span><span class="rows__name">Ejecución</span><p>Web, redes, manual de marca y propiedades digitalizadas.</p><span class="rows__value">8 a 12 semanas</span></li>
-            <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></span><span class="rows__name">Mantenimiento</span><p>Marketing y comunicación de forma continua.</p><span class="rows__value">Mensual</span></li>
-          </ul>
-        </div>
-        <figure class="develop span-6 start-7 metodo__pic" data-moment="picture-develops">
-          <img src="assets/img/twinsip.webp" srcset="assets/img/twinsip-phone.webp 506w, assets/img/twinsip-1200.webp 1200w, assets/img/twinsip.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1120px" width="1600" height="900" alt="Galería en construcción con paneles de madera y vista al jardín, del visor TwinSip de antes y después" loading="lazy" data-source="client" data-subject="TwinSip">
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section tex tex--dots" id="equipo" style="--hm: 2" aria-labelledby="equipo-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="equipo-h">El equipo de Ultramedia</h2>
-        <p>Arquitectos, modeladores y producción en Barranquilla, Ecuador y Argentina.</p>
-        <ul class="tools" aria-label="Herramientas que usamos"><li><img loading="lazy" class="ic ic-24 ic-ink" src="assets/icons/unrealengine.svg" alt="" width="24" height="24"><span><b>Unreal Engine</b> <span class="tools__d">Tours y render en tiempo real</span></span></li><li><img loading="lazy" class="ic ic-24" src="assets/icons/autocad.svg" alt="" width="24" height="22"><span><b>AutoCAD</b> <span class="tools__d">Planos y documentación técnica</span></span></li><li><img loading="lazy" class="ic ic-24 ic-land" src="assets/icons/meta.svg" alt="" width="24" height="16"><span><b>Meta Ads</b> <span class="tools__d">Campañas para inmobiliarias</span></span></li></ul>
-      </div>
-      <div class="grid">
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/jason.webp" srcset="assets/img/jason-240.webp 240w, assets/img/jason-400.webp 400w, assets/img/jason-640.webp 640w, assets/img/jason.webp 1190w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="760" alt="Jason Carrero" loading="lazy" data-source="client" data-subject="Jason Carrero"></div><div class="tile__head"><h3>Jason Carrero</h3></div><p class="t-small muted">CEO y fundador. IA y arquitectura inmersiva.</p></div>
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/domenica.webp" srcset="assets/img/domenica-240.webp 240w, assets/img/domenica-400.webp 400w, assets/img/domenica-640.webp 640w, assets/img/domenica.webp 1250w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="781" alt="Doménica Coronel" loading="lazy" data-source="client" data-subject="Doménica Coronel"></div><div class="tile__head"><h3>Doménica Coronel</h3></div><p class="t-small muted">Arquitecta. Diseño y documentación técnica.</p></div>
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/michelle.webp" srcset="assets/img/michelle-240.webp 240w, assets/img/michelle-400.webp 400w, assets/img/michelle-640.webp 640w, assets/img/michelle.webp 1088w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="743" alt="Michelle Rivera" loading="lazy" data-source="client" data-subject="Michelle Rivera"></div><div class="tile__head"><h3>Michelle Rivera</h3></div><p class="t-small muted">Arquitecta. Renders y espacios interactivos.</p></div>
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/andres.webp" srcset="assets/img/andres-240.webp 240w, assets/img/andres-400.webp 400w, assets/img/andres-640.webp 640w, assets/img/andres.webp 1207w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="769" alt="Andrés Quizhpi" loading="lazy" data-source="client" data-subject="Andrés Quizhpi"></div><div class="tile__head"><h3>Andrés Quizhpi</h3></div><p class="t-small muted">Arquitecto. Coordinación de proyectos y BIM.</p></div>
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/matias.webp" srcset="assets/img/matias-240.webp 240w, assets/img/matias-400.webp 400w, assets/img/matias-640.webp 640w, assets/img/matias.webp 1190w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="760" alt="Matías Carrisi" loading="lazy" data-source="client" data-subject="Matías Carrisi"></div><div class="tile__head"><h3>Matías Carrisi</h3></div><p class="t-small muted">Modelado 3D, Unreal Engine y tours.</p></div>
-        <div class="tile tile--portrait span-2"><div class="tile__media"><img src="assets/img/hector.webp" srcset="assets/img/hector-240.webp 240w, assets/img/hector-400.webp 400w, assets/img/hector-640.webp 640w, assets/img/hector.webp 1270w" sizes="(max-width: 639px) 230px, (max-width: 1023px) 420px, 270px" width="800" height="756" alt="Héctor Cabrera" loading="lazy" data-source="client" data-subject="Héctor Cabrera"></div><div class="tile__head"><h3>Héctor Cabrera</h3></div><p class="t-small muted">Relaciones institucionales y comunicaciones.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section class="section tex tex--dots" id="faq" aria-labelledby="preguntas-h">
     <div class="wrap">
       <div class="grid grid--top">
@@ -444,7 +296,11 @@
             <h2 id="preguntas-h">Preguntas frecuentes</h2>
             <p>Lo que más nos preguntan antes de cotizar. Si tu duda no está aquí, el asistente responde a cualquier hora.</p>
           </div>
-          <a class="link" href="#asistente">Preguntarle al asistente</a>
+          <div class="faq-bot" data-ui="chat">
+            <span class="faq-bot__av" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span>
+            <p class="faq-bot__msg"><b>Asistente de Ultramedia</b>Hola, pregúntame por precios, plazos o cualquier servicio. Si hace falta, te paso con el equipo por WhatsApp.</p>
+          </div>
+          <a class="link" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-chat-open>Preguntarle al asistente</a>
         </div>
         <div class="faq span-6 start-7">
           <div class="faq__item"><h3>¿Qué necesito para pedir un render o un tour?</h3><p>Los planos del proyecto y su información técnica. Con eso hacemos el modelo 3D y, a partir de él, los renders, el tour o la realidad virtual.</p></div>
@@ -457,23 +313,6 @@
     </div>
   </section>
 
-  <section class="section tex tex--grid tex--glow" id="asistente" aria-labelledby="asistente-h">
-    <div class="wrap">
-      <div class="grid grid--top fill">
-        <div class="span-5 stack-5">
-          <div class="section-head">
-            <h2 id="asistente-h">Asistente de Ultramedia</h2>
-            <p>Pregunta por servicios, planes de drones o el método para inmobiliarias. Responde a cualquier hora y te pasa a WhatsApp cuando hace falta una persona.</p>
-          </div>
-          <p class="t-small">Respuestas automáticas con IA; pueden tener errores. No escribas datos personales. <a class="link" href="privacidad.html">Privacidad</a></p>
-        </div>
-        <div class="span-6 start-7" data-chat aria-label="Chat con el asistente de Ultramedia">
-          <!-- asistente.js builds the chat here; this line shows without script -->
-          <p class="chat__noscript">El asistente necesita JavaScript. Escríbenos por WhatsApp.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="footer closing footer--dark ground-inverse tex tex--topo tex--glow" id="contact" aria-labelledby="close-h">
@@ -488,12 +327,12 @@
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo footer__mark" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Ultramedia</a>
+          <a class="nav__logo footer__mark" href="#top"><img class="footer__logo-img" src="assets/img/marca/logo-ultramedia-blanco-800.webp" srcset="assets/img/marca/logo-ultramedia-blanco-400.webp 400w, assets/img/marca/logo-ultramedia-blanco-800.webp 800w, assets/img/marca/logo-ultramedia-blanco-1600.webp 1600w" sizes="(max-width: 639px) 260px, 340px" width="800" height="192" alt="Ultramedia Company" loading="lazy"></a>
           <p class="footer__lede">Visualización 3D, drones y marketing inmobiliario. Barranquilla, Colombia.</p>
         </div>
-        <div class="span-2 footer__col"><h3>Servicios</h3><ul><li><a href="#servicios">Visualización 3D</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#inmobiliarias">Inmobiliarias</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Drones</h3><ul><li><a href="#drones">Industria</a></li><li><a href="#campo">Campo</a></li><li><a href="#skydeck">Obras</a></li><li><a href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">SkyDeck</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Estudio</h3><ul><li><a href="#estudio">Prensa</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#faq">Preguntas</a></li><li><a href="#asistente">Asistente</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Servicios</h3><ul><li><a href="servicios.html#servicios">Visualización 3D</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="servicios.html#inmobiliarias">Inmobiliarias</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Drones</h3><ul><li><a href="servicios.html#drones">Industria</a></li><li><a href="servicios.html#campo">Campo</a></li><li><a href="servicios.html#skydeck">Obras</a></li><li><a href="https://skydeck.dronesbaq.com" target="_blank" rel="noopener">SkyDeck</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Estudio</h3><ul><li><a href="#estudio">Prensa</a></li><li><a href="nosotros.html#equipo">Equipo</a></li><li><a href="#faq">Preguntas</a></li><li><a href="https://wa.me/573006242963" target="_blank" rel="noopener" data-chat-open>Asistente</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contacto</h3><ul><li><a href="mailto:jasonca95@gmail.com">Escribir un correo</a></li><li><a href="https://www.instagram.com/vrdev.ar/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
       </div>
       <div class="footer__legal">
@@ -512,8 +351,7 @@
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
-<script src="asistente.js" defer></script>
-<script src="cotizador.js" defer></script>
+<script src="asistente.js?v=logo1" defer></script>
 <script src="efectos.js" defer></script>
 <script>
 // hidden pictures (the services list's other photos, the Drones menu photo) load before they are needed:

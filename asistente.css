@@ -56,3 +56,28 @@
 .chat__chip { transition: transform 160ms var(--ease-out), opacity 200ms var(--ease-out), background-color 160ms ease, border-color 160ms ease; }
 @starting-style { .chat__chip { opacity: 0; transform: translateY(4px); } }
 @media (prefers-reduced-motion: reduce) { @starting-style { .chat__chip { transform: none; } } }
+
+/* floating launcher and its panel, on every page */
+.chatfab { position: fixed; right: 24px; bottom: 24px; z-index: 70; display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 22px 0 18px; border: 0; border-radius: 999px;
+  background: var(--action); color: var(--action-ink, #fff); font: 500 15px/1 var(--font-text); cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 14px 32px -12px color-mix(in oklab, var(--action) 70%, transparent); transition: transform 180ms cubic-bezier(.23, 1, .32, 1); }
+.chatfab:active { transform: scale(.97); }
+.chatfab:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.chatpanel { position: fixed; right: 24px; bottom: 92px; z-index: 71; width: min(400px, calc(100vw - 32px)); }
+.chatpanel[hidden] { display: none; }
+.chatpanel .chat { height: min(560px, calc(100svh - 132px)); }
+.chatpanel .chat__head { padding-right: 56px; }
+.chatpanel__close { position: absolute; top: 14px; right: 14px; z-index: 1; width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+.chatpanel__close:hover { background: rgba(0, 0, 0, .06); }
+@media (prefers-reduced-motion: no-preference) {
+  .chatpanel:not([hidden]) { animation: chat-in 220ms cubic-bezier(.23, 1, .32, 1); transform-origin: bottom right; }
+  @keyframes chat-in { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+}
+.chatbar { display: none; }
+@media (max-width: 639px) {
+  .chatfab { display: none; }
+  .actionbar { grid-template-columns: minmax(0, 1fr) auto; grid-auto-flow: row; }
+  .chatbar { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 var(--s-4); }
+  .chatpanel { inset: 0; width: auto; z-index: 80; }
+  .chatpanel .chat { height: 100svh; border-radius: 0; border: 0; }
+}

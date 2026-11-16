@@ -1,5 +1,5 @@
 /* Ultramedia legal pages: privacidad, términos. Same tokens as the home page. */
-:root { --bg: #f7f7f5; --surface: #ebebe8; --ink: #000; --muted: #5f5f5b; --accent: #d0106f; --line: rgba(0,0,0,.12); --ease-out: cubic-bezier(0.23, 1, 0.32, 1); }
+:root { --bg: #f7f7f5; --surface: #ebebe8; --ink: #000; --muted: #5f5f5b; --accent: #2f4cda; --line: rgba(0,0,0,.12); --ease-out: cubic-bezier(0.23, 1, 0.32, 1); }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 html { scroll-padding-top: 96px; }
