@@ -148,3 +148,9 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
 /* dark band: the circuit in white, a little brighter */
 .ground-inverse.tex { --tex-c: #fff; --tex-o: .07; }
 .hero.tex { overflow-x: clip; }
+
+/* pointer light on the cards (efectos.js sets --mx and --my) */
+@media (hover: hover) and (pointer: fine) {
+  .rows > li, .card.card--open, .faq .faq__item, .fig { background-image: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px), color-mix(in oklab, var(--accent) 7%, transparent), transparent 70%); }
+  .ground-inverse .rows > li, .ground-inverse .card.card--open { background-image: radial-gradient(260px circle at var(--mx, -400px) var(--my, -400px), color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%); }
+}
