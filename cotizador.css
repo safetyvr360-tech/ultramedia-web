@@ -10,7 +10,7 @@
 .opt__txt b { font-weight: 500; font-size: 16px; }
 .opt__txt small, .opt__price small { font-size: var(--t-small); color: var(--muted); }
 .opt__price { display: grid; justify-items: end; font-weight: 500; font-size: 17px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.opt.is-on { border-color: var(--action); box-shadow: 0 0 0 1px var(--action), 0 14px 30px -22px rgba(31,224,255,.5); }
+.opt.is-on { border-color: var(--action); box-shadow: 0 0 0 1px var(--action), 0 14px 30px -22px rgba(208,16,111,.6); }
 .opt.is-on .opt__box { background: var(--action); border-color: var(--action); }
 .opt.is-on .opt__box::after { opacity: 1; transform: translateY(-1px) rotate(-45deg) scale(1); }
 .opt:active { transform: scale(0.99); }

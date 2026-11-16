@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-type="service" data-radius="round" data-buttons="pill" data-motion>
+<html lang="es" data-type="service" data-radius="soft" data-buttons="arrow" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -18,7 +18,7 @@
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=Montserrat:wght@600..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -26,15 +26,15 @@
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #070f22; --p-surface: #0c1a36; --p-ink: #f2f7ff; --p-muted: #b6c4da;
-  --p-accent: #3cd5f5; --p-accent-ink: #04122b; --p-action: #1fe0ff; --p-action-ink: #04122b;
-  --p-inv-bg: #030812; --p-inv-surface: #0a1530; --p-inv-ink: #f2f7ff; --p-inv-muted: #a3b6d3;
-  --p-inv-accent: #3cd5f5; --p-inv-accent-ink: #04122b; --p-inv-action: #1fe0ff; --p-inv-action-ink: #04122b;
-  --font-display: "Montserrat", "Hanken Grotesk", system-ui, sans-serif;
+  --p-bg: #f7f7f5; --p-surface: #ebebe8; --p-ink: #000000; --p-muted: #666662;
+  --p-accent: #d0106f; --p-accent-ink: #ffffff; --p-action: #d0106f; --p-action-ink: #ffffff;
+  --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
+  --p-inv-accent: #d0106f; --p-inv-accent-ink: #ffffff; --p-inv-action: #d0106f; --p-inv-action-ink: #ffffff;
+  --font-display: "Hanken Grotesk", system-ui, sans-serif;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
-  --display-weight: 700;
-  --display-tracking: -0.02em;
-  --display-tracking-xl: -0.025em;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-tracking-xl: -0.038em;
 }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
@@ -74,7 +74,7 @@
   #equipo .tile__media { --tile-ratio: 4 / 5; }
   @media (max-width: 1023px) { #drones .pair { grid-template-rows: none; } #drones .pair .frame { aspect-ratio: 3 / 2; } }
   @media (max-width: 1023px) { #metodo .metodo__pic { aspect-ratio: 3 / 2; } }
-  @media (max-width: 639px) { #inmobiliarias .panel { --p-h: 180px; } .chat { height: auto; } .chat__log { height: 320px; } #inmobiliarias .panel { --p-h: 260px; } #metodo .metodo__pic { aspect-ratio: 1 / 2; } #equipo .tile__media { --tile-ratio: 3 / 5; } }
+  @media (max-width: 639px) { #inmobiliarias .panel { --p-h: 180px; } .chat { height: auto; } .chat__log { height: 320px; } #inmobiliarias .panel { --p-h: 260px; } #metodo .metodo__pic { aspect-ratio: 10 / 19; } #equipo .tile__media { --tile-ratio: 3 / 5; } }
   @media (max-width: 1279px) { #servicios .lead-more { display: none; } }
   @media (min-width: 640px) and (max-width: 1023px) {
     #drones, #inmobiliarias, #equipo { --h: 2; }
@@ -91,6 +91,8 @@
      a faint accent light in the dark drones band */
   :root { --ease-out: cubic-bezier(0.23, 1, 0.32, 1); --lift: 0 1px 2px rgba(0,0,0,.05), 0 18px 40px -24px rgba(0,0,0,.35); }
   .frame--photo, .tile__media, .panel:has(> img), .develop, .close__media { box-shadow: var(--lift); }
+  .ground-inverse .frame--photo { box-shadow: 0 24px 60px -30px rgba(208,16,111,.45); }
+  @media (min-width: 1024px) { #drones { background-image: radial-gradient(60% 50% at 100% 0%, rgba(208,16,111,.16), transparent 70%), radial-gradient(40% 40% at 0% 100%, rgba(255,255,255,.05), transparent 70%); } }
   .hero__media > picture > img { animation: hero-settle 1400ms var(--ease-out) both; }
   @keyframes hero-settle { from { transform: scale(1.06); } to { transform: scale(1); } }
   @media (prefers-reduced-motion: reduce) { .hero__media > picture > img { animation: none; } }
@@ -171,11 +173,10 @@
 
 <main id="top">
   <section class="hero hero--split" data-enter aria-labelledby="hero-h">
-    <canvas class="hero-net" aria-hidden="true"></canvas>
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Estudio de visualización 3D y drones en Barranquilla</p>
-        <h1 id="hero-h">Visualización 3D y drones <span class="glow">para construir</span> y vender mejor</h1>
+        <h1 id="hero-h">Visualización 3D y drones para construir y vender mejor</h1>
         <p class="hero__lead">Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, y drones para obras, industria y fincas. Proyectos en Colombia, Argentina, España y Estados Unidos.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
@@ -196,7 +197,7 @@
   <section class="section" id="servicios" aria-labelledby="servicios-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="servicios-h">Servicios de <span class="glow">visualización 3D</span></h2>
+        <h2 id="servicios-h">Servicios de visualización 3D</h2>
         <p>Partimos de tus planos y de la información técnica del proyecto. <span class="lead-more">Trabajamos con metodología BIM: arquitectura, cálculos y documentación en un solo modelo.</span></p>
       </div>
       <div class="grid grid--top fill" data-peek>
@@ -220,7 +221,7 @@
 
   <section class="section" id="proyectos" data-moment="photo-chapters" aria-labelledby="proyectos-h">
     <div class="wrap mo-ph">
-      <div class="mo-ph__head"><h2 id="proyectos-h">Proyectos con <span class="glow">recorrido interactivo</span></h2><p>Cada proyecto se abre en el navegador, sin instalar nada. Estos tres están publicados.</p></div>
+      <div class="mo-ph__head"><h2 id="proyectos-h">Proyectos con recorrido interactivo</h2><p>Cada proyecto se abre en el navegador, sin instalar nada. Estos tres están publicados.</p></div>
       <ol class="mo-ph__list">
         <li class="mo-ph__ch">
           <figure class="mo-ph__pic"><img loading="lazy" src="assets/img/plaza-urbina.webp" srcset="assets/img/plaza-urbina-phone.webp 621w, assets/img/plaza-urbina-1200.webp 1200w, assets/img/plaza-urbina.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" alt="Plaza Urbina remodelada, con jardines, escaleras y una cubierta verde entre edificios" width="1600" height="900"></figure>
@@ -244,7 +245,7 @@
   <section class="section" id="estudio" style="--hm: 2" aria-labelledby="estudio-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="estudio-h">Obra publicada en <span class="glow">cuatro países</span></h2>
+        <h2 id="estudio-h">Obra publicada en cuatro países</h2>
         <p>Recorridos abiertos al público, un fuerte histórico reconstruido en realidad virtual y prensa que lo contó.</p>
       </div>
       <ul class="figs" aria-label="Ultramedia en cifras"><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">5<span>+ años</span></p><p>En visualización 3D y realidad virtual</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">4<span>países</span></p><p>Colombia, Argentina, España y Estados Unidos</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/></svg></span><p class="fig__num">8<span>tours</span></p><p>Recorridos publicados y abiertos al público</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 20v-2a4 4 0 0 0-3-3.9M16 2.1a4 4 0 0 1 0 7.8"/></svg></span><p class="fig__num">6<span>especialistas</span></p><p>Arquitectos, modeladores y producción</p></li></ul>
@@ -271,7 +272,7 @@
   <section class="section ground-inverse" id="drones" style="--hm: 2" aria-labelledby="drones-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="drones-h">Inspección industrial <span class="glow">con drones</span></h2>
+        <h2 id="drones-h">Inspección industrial con drones</h2>
         <p>Termografía aérea para encontrar fallas térmicas antes de que causen pérdidas o paren la operación. Es la línea nueva de servicios industriales.</p>
       </div>
       <div class="grid grid--top fill">
@@ -296,7 +297,7 @@
   <section class="section pricing" id="campo" style="--hm: 2" aria-labelledby="campo-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="campo-h">Drones y SIG <span class="glow">para fincas</span></h2>
+        <h2 id="campo-h">Drones y SIG para fincas</h2>
         <p>Elige lo que necesitas y el área de la finca: el estimado se calcula al momento y te lo enviamos por WhatsApp para confirmarlo.</p>
       </div>
       <form class="quote grid grid--top fill" id="cotizador" novalidate>
@@ -332,7 +333,7 @@
       <div class="grid grid--top fill">
         <div class="span-5 stack-5">
           <div class="section-head">
-            <h2 id="skydeck-h">Seguimiento de obra <span class="glow">con SkyDeck</span></h2>
+            <h2 id="skydeck-h">Seguimiento de obra con SkyDeck</h2>
             <p>Pides el vuelo, un piloto verificado de la zona vuela la obra y cada visita queda guardada para compararla con la anterior en un solo visor.</p>
           </div>
           <ul class="rows">
@@ -353,7 +354,7 @@
   <section class="section" id="inmobiliarias" aria-labelledby="inmobiliarias-h">
     <div class="wrap">
         <div class="section-head">
-          <h2 id="inmobiliarias-h">Marketing para <span class="glow">inmobiliarias</span> y loteos</h2>
+          <h2 id="inmobiliarias-h">Marketing para inmobiliarias y loteos</h2>
           <p>El método de Estudio FBX, ahora dentro de Ultramedia: ordenamos cómo publicas, producimos cada propiedad y profesionalizamos tu marca.</p>
         </div>
         <div class="grid">
@@ -380,7 +381,7 @@
     <div class="wrap">
       <div class="grid grid--top fill">
         <div class="span-5 stack-5">
-          <div class="section-head"><h2 id="metodo-h"><span class="glow">Cuatro etapas</span>, contrato mínimo de 6 meses</h2><p>Empezamos con una visita a la inmobiliaria y cada etapa termina con algo que puedes ver: un plan, una web, propiedades digitalizadas.</p></div>
+          <div class="section-head"><h2 id="metodo-h">Cuatro etapas, contrato mínimo de 6 meses</h2><p>Empezamos con una visita a la inmobiliaria y cada etapa termina con algo que puedes ver: un plan, una web, propiedades digitalizadas.</p></div>
           <ul class="rows">
             <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM21 21l-5-5"/></svg></span><span class="rows__name">Diagnóstico</span><p>Visitamos la inmobiliaria y revisamos sus procesos.</p><span class="rows__value">1 semana</span></li>
             <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9zM6 5H5v16h14V5h-1M9 12h6M9 16h6"/></svg></span><span class="rows__name">Plan de acción</span><p>Un plan corto con plazos y prioridades.</p><span class="rows__value">1 semana</span></li>
@@ -398,7 +399,7 @@
   <section class="section" id="equipo" style="--hm: 2" aria-labelledby="equipo-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="equipo-h">El <span class="glow">equipo</span> de Ultramedia</h2>
+        <h2 id="equipo-h">El equipo de Ultramedia</h2>
         <p>Arquitectos, modeladores y producción en Barranquilla, Ecuador y Argentina.</p>
         <ul class="tools" aria-label="Herramientas que usamos"><li><img loading="lazy" class="ic ic-24 ic-ink" src="assets/icons/unrealengine.svg" alt="" width="24" height="24"><span><b>Unreal Engine</b> <span class="tools__d">Tours y render en tiempo real</span></span></li><li><img loading="lazy" class="ic ic-24" src="assets/icons/autocad.svg" alt="" width="24" height="22"><span><b>AutoCAD</b> <span class="tools__d">Planos y documentación técnica</span></span></li><li><img loading="lazy" class="ic ic-24 ic-land" src="assets/icons/meta.svg" alt="" width="24" height="16"><span><b>Meta Ads</b> <span class="tools__d">Campañas para inmobiliarias</span></span></li></ul>
       </div>
@@ -418,7 +419,7 @@
       <div class="grid grid--top">
         <div class="span-5 stack-5">
           <div class="section-head">
-            <h2 id="preguntas-h">Preguntas <span class="glow">frecuentes</span></h2>
+            <h2 id="preguntas-h">Preguntas frecuentes</h2>
             <p>Lo que más nos preguntan antes de cotizar. Si tu duda no está aquí, el asistente responde a cualquier hora.</p>
           </div>
           <a class="link" href="#asistente">Preguntarle al asistente</a>
@@ -439,7 +440,7 @@
       <div class="grid grid--top fill">
         <div class="span-5 stack-5">
           <div class="section-head">
-            <h2 id="asistente-h"><span class="glow">Asistente</span> de Ultramedia</h2>
+            <h2 id="asistente-h">Asistente de Ultramedia</h2>
             <p>Pregunta por servicios, planes de drones o el método para inmobiliarias. Responde a cualquier hora y te pasa a WhatsApp cuando hace falta una persona.</p>
           </div>
           <p class="t-small">Respuestas automáticas con IA; pueden tener errores. No escribas datos personales. <a class="link" href="privacidad.html">Privacidad</a></p>
@@ -457,7 +458,7 @@
   <div class="wrap">
     <div class="closing__cta close--photo">
       <div class="section-head--split">
-        <div><h2 id="close-h">Cuéntanos <span class="glow">tu proyecto</span></h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
+        <div><h2 id="close-h">Cuéntanos tu proyecto</h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
         <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
       <div class="close__media"><img style="--pos: 50% 55%" src="assets/img/rivendel.webp" srcset="assets/img/rivendel-close-phone.webp 468w, assets/img/rivendel-1200.webp 1200w, assets/img/rivendel.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" width="1600" height="900" alt="Cabaña de piedra y madera entre árboles en flor del proyecto Rivendel Lodge, al atardecer" loading="lazy" data-source="client" data-subject="Rivendel Lodge"></div>
@@ -491,7 +492,6 @@
 <script type="module" src="assets/layout/layout.js"></script>
 <script src="asistente.js" defer></script>
 <script src="cotizador.js" defer></script>
-<script src="marca.js" defer></script>
 <script>
 // hidden pictures (the services list's other photos, the Drones menu photo) load before they are needed:
 // when the services section comes near, and when the pointer reaches the menu
