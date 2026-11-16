@@ -200,3 +200,22 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
     linear-gradient(#fff, #fff) bottom right / 18px 2px no-repeat, linear-gradient(#fff, #fff) bottom right / 2px 18px no-repeat; }
 #drones .frame--photo::before { content: ""; position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; translate: -50% -50%; z-index: 1; pointer-events: none; opacity: .75;
   background: linear-gradient(#fff, #fff) center / 26px 1.5px no-repeat, linear-gradient(#fff, #fff) center / 1.5px 26px no-repeat; border-radius: 50%; }
+
+/* type: Space Grotesk for the headings (a technical grotesk with drawn terminals), JetBrains Mono for the small
+   labels, Hanken Grotesk stays for reading */
+h1, h2, h3, .t-card, .rows__name, .fig .fig__num { font-family: var(--font-display); }
+h1 { font-weight: 500; letter-spacing: -0.04em; }
+h2 { font-weight: 500; letter-spacing: -0.035em; }
+h3, .rows__name, .t-card { font-weight: 600; letter-spacing: -0.015em; }
+.hl { color: var(--accent); }
+.eyebrow, .t-label, .hero__kicker, .hero-card__geo { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 var(--s-3); color: var(--accent); }
+.ground-inverse .eyebrow { color: color-mix(in oklab, var(--accent) 70%, #fff); }
+.hero__kicker { color: var(--muted); }
+.fig .fig__num span { font-family: var(--font-mono); letter-spacing: 0; }
+p.eyebrow.eyebrow { font: 500 13px/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); max-width: none; margin: 0 0 var(--s-3); }
+.ground-inverse p.eyebrow.eyebrow { color: color-mix(in oklab, var(--accent) 65%, #fff); }
+.ground-surface p.eyebrow.eyebrow { color: color-mix(in oklab, var(--accent) 85%, #000); }
+@media (max-width: 639px) { p.eyebrow.eyebrow { margin-bottom: 6px; } }
+@media (max-width: 639px) { #faq p.eyebrow.eyebrow, #asistente p.eyebrow.eyebrow { display: none; } }
+@media (max-width: 639px) { #estudio.tex::before { display: none; } }

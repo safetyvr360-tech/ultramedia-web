@@ -75,8 +75,8 @@ try {
   page.on('response', q => { if (q.status() === 404) errors.push('404 ' + q.url()); });
   page.on('pageerror', e => errors.push(e.message));
   await page.goto(URL, { waitUntil: 'networkidle' });
-  const font = await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('400 16px "Hanken Grotesk"') && getComputedStyle(document.querySelector('h1')).fontFamily.includes('Hanken'); });
-  add('B05', 'La fuente Hanken Grotesk carga y se usa', font ? [] : ['no cargó la fuente']);
+  const font = await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('400 16px "Hanken Grotesk"') && document.fonts.check('500 40px "Space Grotesk"') && getComputedStyle(document.querySelector('h1')).fontFamily.includes('Space Grotesk') && getComputedStyle(document.body).fontFamily.includes('Hanken'); });
+  add('B05', 'Space Grotesk (títulos) y Hanken Grotesk (texto) cargan y se usan', font ? [] : ['no cargó la fuente']);
 
   // B06: the chat
   // a slow server with no key yet: the chat must lock while it waits, then answer from its own facts

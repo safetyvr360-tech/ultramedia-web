@@ -18,7 +18,7 @@
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -30,9 +30,10 @@
   --p-accent: #d0106f; --p-accent-ink: #ffffff; --p-action: #d0106f; --p-action-ink: #ffffff;
   --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
   --p-inv-accent: #d0106f; --p-inv-accent-ink: #ffffff; --p-inv-action: #d0106f; --p-inv-action-ink: #ffffff;
-  --font-display: "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
-  --display-weight: 400;
+  --display-weight: 500;
   --display-tracking: -0.03em;
   --display-tracking-xl: -0.038em;
 }
@@ -45,7 +46,7 @@
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
 <link rel="stylesheet" href="asistente.css">
 <link rel="stylesheet" href="cotizador.css">
-<link rel="stylesheet" href="marca.css?v=fx6">
+<link rel="stylesheet" href="marca.css?v=ty1">
 <!-- page CSS: inside visuals only -->
 <style>
   #drones .pair { display: grid; gap: var(--s-5); height: 100%; grid-template-rows: 1fr 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; }
@@ -176,7 +177,7 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Estudio de visualización 3D y drones en Barranquilla</p>
-        <h1 id="hero-h">Visualización 3D y drones para construir y vender mejor</h1>
+        <h1 id="hero-h">Visualización 3D y <span class="hl">drones</span> para construir y vender mejor</h1>
         <p class="hero__lead">Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, y drones para obras, industria y fincas. Proyectos en Colombia, Argentina, España y Estados Unidos.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
@@ -197,7 +198,7 @@
   <section class="section tex tex--dots" id="servicios" aria-labelledby="servicios-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="servicios-h">Servicios de visualización 3D</h2>
+        <p class="eyebrow">01 · Visualización 3D</p><h2 id="servicios-h">Servicios de visualización 3D</h2>
         <p>Partimos de tus planos y de la información técnica del proyecto. <span class="lead-more">Trabajamos con metodología BIM: arquitectura, cálculos y documentación en un solo modelo.</span></p>
       </div>
       <div class="grid grid--top fill" data-peek>
@@ -272,7 +273,7 @@
   <section class="section ground-inverse tex tex--circuit" id="drones" style="--hm: 2" aria-labelledby="drones-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="drones-h">Inspección industrial con drones</h2>
+        <p class="eyebrow">02 · Drones industriales</p><h2 id="drones-h">Inspección industrial con drones</h2>
         <p>Termografía aérea para encontrar fallas térmicas antes de que causen pérdidas o paren la operación. Es la línea nueva de servicios industriales.</p>
       </div>
       <div class="grid grid--top fill">
@@ -297,7 +298,7 @@
   <section class="section pricing tex tex--topo" id="campo" style="--hm: 2" aria-labelledby="campo-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="campo-h">Drones y SIG para fincas</h2>
+        <p class="eyebrow">03 · Campo y SIG</p><h2 id="campo-h">Drones y SIG para fincas</h2>
         <p>Elige lo que necesitas y el área de la finca: el estimado se calcula al momento y te lo enviamos por WhatsApp para confirmarlo.</p>
       </div>
       <form class="quote grid grid--top fill" id="cotizador" novalidate>
@@ -354,7 +355,7 @@
   <section class="section tex tex--circuit" id="inmobiliarias" aria-labelledby="inmobiliarias-h">
     <div class="wrap">
         <div class="section-head">
-          <h2 id="inmobiliarias-h">Marketing para inmobiliarias y loteos</h2>
+          <p class="eyebrow">04 · Inmobiliarias</p><h2 id="inmobiliarias-h">Marketing para inmobiliarias y loteos</h2>
           <p>El método de Estudio FBX, ahora dentro de Ultramedia: ordenamos cómo publicas, producimos cada propiedad y profesionalizamos tu marca.</p>
         </div>
         <div class="grid">
