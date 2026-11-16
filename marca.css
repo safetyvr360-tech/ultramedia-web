@@ -172,3 +172,12 @@ h2 { font-size: clamp(28px, 1.25vw + 22px, 40px); }
   .tile--portrait:hover .tile__media::after { transform: scaleX(1); }
 }
 @media (prefers-reduced-motion: reduce) { .tile--portrait .tile__media img, .tile--portrait .tile__media::after { transition: none; } }
+
+/* the tour card scans like a drone camera: a thin light passes down the picture every few seconds */
+.hero-card__hud::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .7) 20%, color-mix(in oklab, var(--accent) 80%, #fff) 50%, rgba(255, 255, 255, .7) 80%, transparent);
+  box-shadow: 0 0 18px 2px color-mix(in oklab, var(--accent) 45%, transparent); opacity: 0; animation: hud-scan 7s linear 1.6s infinite; }
+@keyframes hud-scan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: .8; } 55% { opacity: .5; } 70% { transform: translateY(var(--scan-h, 60vh)); opacity: 0; } 100% { opacity: 0; } }
+.hero-card__hud { container-type: size; }
+.hero-card__hud::before { --scan-h: 100cqh; }
+@media (prefers-reduced-motion: reduce) { .hero-card__hud::before { animation: none; display: none; } }
