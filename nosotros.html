@@ -19,7 +19,7 @@
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&family=Outfit:wght@200..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -31,7 +31,7 @@
   --p-accent: #2f4cda; --p-accent-ink: #ffffff; --p-action: #2f4cda; --p-action-ink: #ffffff;
   --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
   --p-inv-accent: #2f4cda; --p-inv-accent-ink: #ffffff; --p-inv-action: #2f4cda; --p-inv-action-ink: #ffffff;
-  --font-display: "Space Grotesk", "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Outfit", "Hanken Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
   --display-weight: 500;
@@ -44,8 +44,8 @@
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/picture-develops/moment.js">
-<link rel="stylesheet" href="asistente.css?v=logo1">
-<link rel="stylesheet" href="marca.css?v=logo1">
+<link rel="stylesheet" href="asistente.css?v=ty5">
+<link rel="stylesheet" href="marca.css?v=ty5">
 <!-- page CSS: inside visuals only -->
 <style>
   #drones .pair { display: grid; gap: var(--s-5); height: 100%; grid-template-rows: 1fr 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; }
@@ -128,7 +128,7 @@
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Saltar al contenido</a>
-    <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="assets/img/marca/logo-ultramedia-400.webp" srcset="assets/img/marca/logo-ultramedia-400.webp 400w, assets/img/marca/logo-ultramedia-800.webp 800w" sizes="168px" width="400" height="96" alt="Ultramedia Company"></a>
+    <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="assets/img/marca/logo-ultramedia-400.webp" srcset="assets/img/marca/logo-ultramedia-400.webp 400w, assets/img/marca/logo-ultramedia-800.webp 800w" sizes="200px" width="400" height="96" alt="Ultramedia Company"></a>
     <nav class="nav__links" aria-label="Principal">
       <div class="nav__item">
         <a class="nav__link" href="nosotros.html" aria-current="page">Nosotros <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -196,7 +196,7 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Nosotros</p>
-        <h1 id="hero-h">Arquitectos y pilotos que <span class="hl">muestran</span> proyectos antes de construirlos</h1>
+        <h1 id="hero-h">Un equipo de arquitectura inmersiva y <strong class="hl">drones</strong></h1>
         <p class="hero__lead">Somos un estudio de Barranquilla con arquitectos, modeladores y producción en Colombia, Ecuador y Argentina. Unimos la visualización 3D, los drones y el marketing inmobiliario.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
@@ -204,8 +204,8 @@
         </div>
       </div>
       <div class="hero__media hero-card span-6 start-7">
-        <picture><source media="(max-width: 639px)" srcset="assets/img/vr-phone.webp"><img src="assets/img/vr.webp" srcset="assets/img/vr-640.webp 640w, assets/img/vr-800.webp 800w, assets/img/vr.webp 1100w" sizes="(max-width: 1023px) 100vw, 900px" width="1100" height="600" alt="Persona con visor de realidad virtual usando una interfaz flotante" fetchpriority="high" data-source="client" data-subject="realidad virtual"></picture>
-        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Realidad virtual</p><span class="hero-badge" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span>
+        <picture><source media="(max-width: 639px)" srcset="assets/img/san-martin-phone.webp"><img src="assets/img/san-martin-1200.webp" srcset="assets/img/san-martin-800.webp 800w, assets/img/san-martin-1200.webp 1200w, assets/img/san-martin.webp 1600w" sizes="(max-width: 1023px) 100vw, 640px" width="1600" height="1613" alt="Cocina y comedor de un departamento con luz natural y paredes blancas, del recorrido de Casa San Martín" fetchpriority="high" data-source="client" data-subject="Casa San Martín"></picture>
+        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Casa San Martín · 3D</p><span class="hero-badge" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt="UMC, Ultramedia Company"></span>
       </div>
     </div></div>
   </section>
@@ -213,7 +213,7 @@
   <section class="section tex tex--dots" id="historia" style="--hm: 2" aria-labelledby="historia-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="historia-h">Dos estudios: arquitectura inmersiva y marketing inmobiliario</h2>
+        <h2 id="historia-h"><strong>2 estudios</strong>, una sola marca</h2>
         <p>Ultramedia nació haciendo visualización 3D y realidad virtual en Barranquilla. Estudio FBX ordenaba la comunicación de inmobiliarias y loteos. Hoy trabajan juntos.</p>
       </div>
       <ul class="figs" aria-label="Ultramedia en cifras"><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">5<span>+ años</span></p><p>En visualización 3D y realidad virtual</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">4<span>países</span></p><p>Colombia, Argentina, España y Estados Unidos</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/></svg></span><p class="fig__num">8<span>tours</span></p><p>Recorridos publicados y abiertos al público</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 20v-2a4 4 0 0 0-3-3.9M16 2.1a4 4 0 0 1 0 7.8"/></svg></span><p class="fig__num">6<span>especialistas</span></p><p>Arquitectos, modeladores y producción</p></li></ul>
@@ -236,7 +236,7 @@
     <div class="wrap">
       <div class="grid grid--top fill">
         <div class="span-5 stack-5">
-          <div class="section-head"><h2 id="metodo-h">Cuatro etapas, contrato mínimo de 6 meses</h2><p>Empezamos con una visita a la inmobiliaria y cada etapa termina con algo que puedes ver: un plan, una web, propiedades digitalizadas.</p></div>
+          <div class="section-head"><h2 id="metodo-h">Cuatro etapas, <strong>contrato mínimo de 6 meses</strong></h2><p>Empezamos con una visita a la inmobiliaria y cada etapa termina con algo que puedes ver: un plan, una web, propiedades digitalizadas.</p></div>
           <ul class="rows">
             <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM21 21l-5-5"/></svg></span><span class="rows__name">Diagnóstico</span><p>Visitamos la inmobiliaria y revisamos sus procesos.</p><span class="rows__value">1 semana</span></li>
             <li><span class="chip chip--row rows__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9zM6 5H5v16h14V5h-1M9 12h6M9 16h6"/></svg></span><span class="rows__name">Plan de acción</span><p>Un plan corto con plazos y prioridades.</p><span class="rows__value">1 semana</span></li>
@@ -254,7 +254,7 @@
   <section class="section tex tex--dots" id="equipo" style="--hm: 2" aria-labelledby="equipo-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="equipo-h">6 especialistas en arquitectura, 3D y producción</h2>
+        <h2 id="equipo-h"><strong>6 especialistas</strong> en arquitectura, 3D y producción</h2>
         <p>Arquitectos, modeladores y producción en Barranquilla, Ecuador y Argentina.</p>
         <ul class="tools" aria-label="Herramientas que usamos"><li><img loading="lazy" class="ic ic-24 ic-ink" src="assets/icons/unrealengine.svg" alt="" width="24" height="24"><span><b>Unreal Engine</b> <span class="tools__d">Tours y render en tiempo real</span></span></li><li><img loading="lazy" class="ic ic-24" src="assets/icons/autocad.svg" alt="" width="24" height="22"><span><b>AutoCAD</b> <span class="tools__d">Planos y documentación técnica</span></span></li><li><img loading="lazy" class="ic ic-24 ic-land" src="assets/icons/meta.svg" alt="" width="24" height="16"><span><b>Meta Ads</b> <span class="tools__d">Campañas para inmobiliarias</span></span></li></ul>
       </div>
@@ -274,7 +274,7 @@
   <div class="wrap">
     <div class="closing__cta close--photo">
       <div class="section-head--split">
-        <div><h2 id="close-h">Cuéntanos tu proyecto</h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
+        <div><h2 id="close-h">Cuéntanos <strong>tu proyecto</strong></h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
         <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
       <div class="close__media"><img style="--pos: 50% 55%" src="assets/img/rivendel.webp" srcset="assets/img/rivendel-close-phone.webp 468w, assets/img/rivendel-1200.webp 1200w, assets/img/rivendel.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" width="1600" height="900" alt="Cabaña de piedra y madera entre árboles en flor del proyecto Rivendel Lodge, al atardecer" loading="lazy" data-source="client" data-subject="Rivendel Lodge"></div>
@@ -306,7 +306,7 @@
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
-<script src="asistente.js?v=logo1" defer></script>
+<script src="asistente.js?v=ty5" defer></script>
 <script src="efectos.js" defer></script>
 <script>
 // hidden pictures (the services list's other photos, the Drones menu photo) load before they are needed:

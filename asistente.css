@@ -81,3 +81,16 @@
   .chatpanel { inset: 0; width: auto; z-index: 80; }
   .chatpanel .chat { height: 100svh; border-radius: 0; border: 0; }
 }
+
+/* the launcher in the bar: a secondary button with the chat icon beside the WhatsApp one */
+.nav__actions { display: flex; align-items: center; gap: var(--s-3); }
+.chatnav { display: inline-flex; align-items: center; gap: 8px; }
+.chatnav svg { width: 18px; height: 18px; }
+.chatpanel { top: 84px; bottom: auto; }
+@media (max-width: 639px) { .chatpanel { top: 0; } }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .chatnav { width: 44px; padding: 0; justify-content: center; }
+  .chatnav .chatfab__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* Preguntas is also under Nosotros; at this width the bar keeps three words */
+  .nav__links > .nav__item:last-child { display: none; }
+}

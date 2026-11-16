@@ -20,7 +20,7 @@
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&family=Outfit:wght@200..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -32,7 +32,7 @@
   --p-accent: #2f4cda; --p-accent-ink: #ffffff; --p-action: #2f4cda; --p-action-ink: #ffffff;
   --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
   --p-inv-accent: #2f4cda; --p-inv-accent-ink: #ffffff; --p-inv-action: #2f4cda; --p-inv-action-ink: #ffffff;
-  --font-display: "Space Grotesk", "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Outfit", "Hanken Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
   --display-weight: 500;
@@ -45,8 +45,8 @@
 <link rel="modulepreload" href="assets/moments/moments.js">
 <link rel="modulepreload" href="assets/moments/lib.js">
 <link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
-<link rel="stylesheet" href="asistente.css?v=logo1">
-<link rel="stylesheet" href="marca.css?v=logo1">
+<link rel="stylesheet" href="asistente.css?v=ty5">
+<link rel="stylesheet" href="marca.css?v=ty5">
 <!-- page CSS: inside visuals only -->
 <style>
   #drones .pair { display: grid; gap: var(--s-5); height: 100%; grid-template-rows: 1fr 1fr; grid-template-columns: minmax(0, 1fr); min-width: 0; }
@@ -129,7 +129,7 @@
 <header class="nav nav--centre">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top">Saltar al contenido</a>
-    <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="assets/img/marca/logo-ultramedia-400.webp" srcset="assets/img/marca/logo-ultramedia-400.webp 400w, assets/img/marca/logo-ultramedia-800.webp 800w" sizes="168px" width="400" height="96" alt="Ultramedia Company"></a>
+    <a class="nav__logo" href="index.html"><img class="nav__logo-img" src="assets/img/marca/logo-ultramedia-400.webp" srcset="assets/img/marca/logo-ultramedia-400.webp 400w, assets/img/marca/logo-ultramedia-800.webp 800w" sizes="200px" width="400" height="96" alt="Ultramedia Company"></a>
     <nav class="nav__links" aria-label="Principal">
       <div class="nav__item">
         <a class="nav__link" href="nosotros.html">Nosotros <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -197,7 +197,7 @@
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Estudio de visualización 3D y drones en Barranquilla</p>
-        <h1 id="hero-h">Visualización 3D y <span class="hl">drones</span> para construir y vender mejor</h1>
+        <h1 id="hero-h">Visualización 3D y <strong class="hl">drones</strong> para <strong>construir y vender</strong> mejor</h1>
         <p class="hero__lead">Renders, tours 360° y realidad virtual para constructoras e inmobiliarias, y drones para obras, industria y fincas. Proyectos en Colombia, Argentina, España y Estados Unidos.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
@@ -206,7 +206,7 @@
       </div>
       <div class="hero__media hero-card span-6 start-7">
         <picture><source media="(max-width: 639px)" srcset="assets/img/fuerte-phone.webp"><img src="assets/img/fuerte.webp" srcset="assets/img/fuerte-800.webp 800w, assets/img/fuerte-1200.webp 1200w, assets/img/fuerte.webp 1600w" sizes="(max-width: 1023px) 100vw, 900px" width="1600" height="973" alt="Patio del Fuerte San Rafael del Diamante reconstruido en 3D, con muros de adobe y galerías de madera" fetchpriority="high" data-source="client" data-subject="Fuerte San Rafael"></picture>
-        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Tour 3D · 360°</p><span class="hero-badge" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span>
+        <span class="hero-card__hud" aria-hidden="true"></span><p class="hero-card__geo" aria-hidden="true">Tour 3D · 360°</p><span class="hero-badge" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt="UMC, Ultramedia Company"></span>
         <a class="ly-play" href="https://estudiofbx.com/fuertesanrafael/" target="_blank" rel="noopener">
           <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span>
           <span class="ly-play__label">Recorrer el Fuerte San Rafael<small>Tour interactivo en el navegador</small></span>
@@ -218,7 +218,7 @@
   <section class="section tex tex--dots" id="lineas" aria-labelledby="lineas-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="lineas-h">Nuestros servicios en 4 líneas</h2>
+        <h2 id="lineas-h">Nuestros servicios en <strong>4 líneas</strong></h2>
         <p>Lo que hacemos, explicado por separado. Cada línea tiene su detalle, sus precios y cómo cotizar en la página de servicios.</p>
       </div>
       <div class="grid grid--top fill">
@@ -240,7 +240,7 @@
 
   <section class="section" id="proyectos" data-moment="photo-chapters" aria-labelledby="proyectos-h">
     <div class="wrap mo-ph">
-      <div class="mo-ph__head"><h2 id="proyectos-h">Proyectos con recorrido interactivo</h2><p>Cada proyecto se abre en el navegador, sin instalar nada. Estos tres están publicados.</p></div>
+      <div class="mo-ph__head"><h2 id="proyectos-h">Proyectos con <strong>recorrido interactivo</strong></h2><p>Cada proyecto se abre en el navegador, sin instalar nada. Estos tres están publicados.</p></div>
       <ol class="mo-ph__list">
         <li class="mo-ph__ch">
           <figure class="mo-ph__pic"><img loading="lazy" src="assets/img/plaza-urbina.webp" srcset="assets/img/plaza-urbina-phone.webp 621w, assets/img/plaza-urbina-1200.webp 1200w, assets/img/plaza-urbina.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" alt="Plaza Urbina remodelada, con jardines, escaleras y una cubierta verde entre edificios" width="1600" height="900"></figure>
@@ -264,7 +264,7 @@
   <section class="section tex tex--grid" id="estudio" style="--hm: 2" aria-labelledby="estudio-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="estudio-h">Obra publicada en cuatro países</h2>
+        <h2 id="estudio-h">Obra publicada en <strong>cuatro países</strong></h2>
         <p>Recorridos abiertos al público, un fuerte histórico reconstruido en realidad virtual y prensa que lo contó.</p>
       </div>
       <ul class="figs" aria-label="Ultramedia en cifras"><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">5<span>+ años</span></p><p>En visualización 3D y realidad virtual</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/></svg></span><p class="fig__num">4<span>países</span></p><p>Colombia, Argentina, España y Estados Unidos</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4ZM3 7v10l9 4 9-4V7M12 11v10"/></svg></span><p class="fig__num">8<span>tours</span></p><p>Recorridos publicados y abiertos al público</p></li><li class="fig"><span class="chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 20v-2a4 4 0 0 0-3-3.9M16 2.1a4 4 0 0 1 0 7.8"/></svg></span><p class="fig__num">6<span>especialistas</span></p><p>Arquitectos, modeladores y producción</p></li></ul>
@@ -288,26 +288,26 @@
     </div>
   </section>
 
-  <section class="section tex tex--dots" id="faq" aria-labelledby="preguntas-h">
+  <section class="section tex tex--dots" id="faq" style="--hm: 2" aria-labelledby="preguntas-h">
     <div class="wrap">
       <div class="grid grid--top">
         <div class="span-5 stack-5">
           <div class="section-head">
-            <h2 id="preguntas-h">Preguntas frecuentes</h2>
+            <h2 id="preguntas-h">Preguntas <strong>frecuentes</strong></h2>
             <p>Lo que más nos preguntan antes de cotizar. Si tu duda no está aquí, el asistente responde a cualquier hora.</p>
           </div>
           <div class="faq-bot" data-ui="chat">
-            <span class="faq-bot__av" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span>
+            <span class="faq-bot__av" aria-hidden="true"><img class="umc" loading="lazy" src="assets/img/marca/umc-96.webp" width="96" height="96" alt="UMC, Ultramedia Company"></span>
             <p class="faq-bot__msg"><b>Asistente de Ultramedia</b>Hola, pregúntame por precios, plazos o cualquier servicio. Si hace falta, te paso con el equipo por WhatsApp.</p>
           </div>
-          <a class="link" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-chat-open>Preguntarle al asistente</a>
+          <a class="btn btn--secondary faq__ask" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-chat-open>Preguntarle al asistente</a>
         </div>
         <div class="faq span-6 start-7">
           <div class="faq__item"><h3>¿Qué necesito para pedir un render o un tour?</h3><p>Los planos del proyecto y su información técnica. Con eso hacemos el modelo 3D y, a partir de él, los renders, el tour o la realidad virtual.</p></div>
           <div class="faq__item"><h3>¿Los tours funcionan en el celular?</h3><p>Sí. Abren en el navegador del celular, del computador o de un visor de realidad virtual, sin instalar nada.</p></div>
           <div class="faq__item"><h3>¿Trabajan fuera de Barranquilla?</h3><p>Sí. Tenemos proyectos en Colombia, Argentina, España y Estados Unidos.</p></div>
           <div class="faq__item"><h3>¿Cuánto cuesta el seguimiento de obra con drones?</h3><p>En SkyDeck, alrededor de $1.000.000 al mes por obra con un vuelo, o $1.800.000 con dos vuelos y modelos 3D. También hay vuelos sueltos.</p></div>
-          <div class="faq__item"><h3>¿Cuánto dura el trabajo con una inmobiliaria?</h3><p>El contrato mínimo es de 6 meses: una semana de diagnóstico, una de plan, de 8 a 12 de ejecución y luego mantenimiento.</p></div>
+          <div class="faq__item"><h3>¿Cuánto dura el trabajo con una inmobiliaria?</h3><p>El contrato mínimo es de 6 meses: una semana de diagnóstico, una de plan, de 8 a 12 de ejecución y luego mantenimiento.</p></div><div class="faq__item"><h3>¿Qué detecta la termografía con drones?</h3><p>Fallas térmicas en paneles solares, redes eléctricas, plantas y cubiertas, antes de que causen pérdidas o paren la operación. Se cotiza según el sitio.</p></div>
         </div>
       </div>
     </div>
@@ -319,7 +319,7 @@
   <div class="wrap">
     <div class="closing__cta close--photo">
       <div class="section-head--split">
-        <div><h2 id="close-h">Cuéntanos tu proyecto</h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
+        <div><h2 id="close-h">Cuéntanos <strong>tu proyecto</strong></h2><p class="t-lead">Te respondemos por WhatsApp con alcance, plazo y precio.</p></div>
         <a class="btn btn--primary" href="https://wa.me/573006242963" target="_blank" rel="noopener" data-wa>Cotizar por WhatsApp<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
       </div>
       <div class="close__media"><img style="--pos: 50% 55%" src="assets/img/rivendel.webp" srcset="assets/img/rivendel-close-phone.webp 468w, assets/img/rivendel-1200.webp 1200w, assets/img/rivendel.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(100vw - 96px), 1280px" width="1600" height="900" alt="Cabaña de piedra y madera entre árboles en flor del proyecto Rivendel Lodge, al atardecer" loading="lazy" data-source="client" data-subject="Rivendel Lodge"></div>
@@ -351,7 +351,7 @@
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
-<script src="asistente.js?v=logo1" defer></script>
+<script src="asistente.js?v=ty5" defer></script>
 <script src="efectos.js" defer></script>
 <script>
 // hidden pictures (the services list's other photos, the Drones menu photo) load before they are needed:

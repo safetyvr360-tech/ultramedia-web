@@ -75,16 +75,16 @@ try {
   page.on('response', q => { if (q.status() === 404) errors.push('404 ' + q.url()); });
   page.on('pageerror', e => errors.push(e.message));
   await page.goto(URL, { waitUntil: 'networkidle' });
-  const font = await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('400 16px "Hanken Grotesk"') && document.fonts.check('500 40px "Space Grotesk"') && getComputedStyle(document.querySelector('h1')).fontFamily.includes('Space Grotesk') && getComputedStyle(document.body).fontFamily.includes('Hanken'); });
-  add('B05', 'Space Grotesk (títulos) y Hanken Grotesk (texto) cargan y se usan', font ? [] : ['no cargó la fuente']);
+  const font = await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('400 16px "Hanken Grotesk"') && document.fonts.check('300 40px "Outfit"') && getComputedStyle(document.querySelector('h1')).fontFamily.includes('Outfit') && getComputedStyle(document.body).fontFamily.includes('Hanken'); });
+  add('B05', 'Outfit (títulos) y Hanken Grotesk (texto) cargan y se usan', font ? [] : ['no cargó la fuente']);
 
   // B06: the chat
   // a slow server with no key yet: the chat must lock while it waits, then answer from its own facts
   await page.route('**/chat.php', async r => { await new Promise(x => setTimeout(x, 500)); await r.fulfill({ status: 500, body: '{}' }); });
   const chat = [];
   if (!(await page.locator('#um-chat').isHidden())) chat.push('el chat empieza abierto');
-  await page.click('.chatfab');
-  if (!(await page.locator('#um-chat').isVisible())) chat.push('el botón flotante no abre el chat');
+  await page.click('.chatnav');
+  if (!(await page.locator('#um-chat').isVisible())) chat.push('el botón Asistente de la barra no abre el chat');
   for (const [q, re] of [['¿Hacen termografía de paneles solares?', /termografía/i], ['planes de SkyDeck', /1\.000\.000/], ['quiero hablar con una persona', /WhatsApp/]]) {
     await page.fill('#um-q', q); await page.press('#um-q', 'Enter');
     const busy = await page.locator('.chat__send').isDisabled();
@@ -97,7 +97,7 @@ try {
   if (!wa || !wa.startsWith('https://wa.me/573006242963')) chat.push('el botón de WhatsApp del chat no va a Jason');
   await page.keyboard.press('Escape');
   if (!(await page.locator('#um-chat').isHidden())) chat.push('Escape no cierra el chat');
-  add('B06', 'El chat flotante abre, responde, se bloquea mientras contesta, lleva a WhatsApp y cierra con Escape', chat);
+  add('B06', 'El botón Asistente abre el chat, responde, se bloquea mientras contesta, lleva a WhatsApp y cierra con Escape', chat);
 
   // B07: the nav menu opens on hover and the phone menu toggles
   const nav = [];

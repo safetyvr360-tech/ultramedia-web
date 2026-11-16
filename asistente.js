@@ -21,7 +21,10 @@
   panel.className = 'chatpanel'; panel.id = 'um-chat'; panel.hidden = true; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat con el asistente de Ultramedia');
   panel.innerHTML = '<button type="button" class="chatpanel__close" aria-label="Cerrar el chat"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button><div data-chat></div>';
   var foot = document.querySelector('footer.closing') || document.body;
-  foot.appendChild(panel); foot.appendChild(fab);
+  foot.appendChild(panel);
+  var actions = document.querySelector('.nav__actions');
+  if (actions) { fab.className = 'btn btn--secondary chatnav'; fab.querySelector('.chatfab__label').textContent = 'Asistente'; actions.insertBefore(fab, actions.firstChild); }
+  else foot.appendChild(fab);
   var bar = document.querySelector('nav.actionbar'), barBtn = null;
   if (bar) {
     barBtn = document.createElement('button'); barBtn.type = 'button'; barBtn.className = 'btn btn--secondary chatbar';
@@ -111,7 +114,7 @@
 
   host.innerHTML =
     '<div class="chat">' +
-    '<div class="chat__head"><span class="chat__av" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt=""></span><div><b>Asistente de Ultramedia</b><span class="chat__status"><i class="chat__live" aria-hidden="true"></i><span class="chat__status-text"></span></span></div></div>' +
+    '<div class="chat__head"><span class="chat__av" aria-hidden="true"><img class="umc" src="assets/img/marca/umc-96.webp" width="96" height="96" alt="UMC, Ultramedia Company"></span><div><b>Asistente de Ultramedia</b><span class="chat__status"><i class="chat__live" aria-hidden="true"></i><span class="chat__status-text"></span></span></div></div>' +
     '<div class="chat__log" aria-live="polite"></div>' +
     
     '<form class="chat__form"><label class="chat__label" for="um-q">Tu pregunta</label>' +
