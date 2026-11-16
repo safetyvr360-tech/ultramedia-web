@@ -36,3 +36,5 @@ assets/moments/*
 assets/moments/*/demo*.html
 assets/motion/*.html
 !assets/fondos/
+!assets/ui/base.css
+!assets/ui/chat/
