@@ -35,3 +35,4 @@ assets/moments/*
 !assets/moments/picture-develops/
 assets/moments/*/demo*.html
 assets/motion/*.html
+!assets/fondos/
