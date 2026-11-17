@@ -33,7 +33,7 @@ mientras la web esté en GitHub Pages; con la clave de Anthropic en el hosting f
 2. **Servicios de visualización 3D:** modelado, renders, tours interactivos, realidad virtual y aumentada, BIM.
 3. **Proyectos con recorrido:** Plaza Urbina, Casa San Martín y Box House, cada uno con su tour.
 4. **Obra publicada en cuatro países:** cifras y notas de prensa del Fuerte San Rafael.
-5. **Inspección industrial con drones:** termografía para paneles solares, industria, redes y cubiertas.
+5. **Inspección industrial con drones:** termografía y limpieza de paneles solares, industria, redes y cubiertas.
 6. **Drones y SIG para fincas:** topografía, agricultura y ganadería de precisión, diseño de cultivos y diagnóstico predial, con un cotizador que calcula el estimado y lo envía por WhatsApp.
 7. **Seguimiento de obra con SkyDeck:** planes y enlace a skydeck.dronesbaq.com.
 8. **Marketing para inmobiliarias y loteos** y su **método en cuatro etapas** (Estudio FBX).

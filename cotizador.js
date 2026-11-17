@@ -10,6 +10,7 @@
   var SVC = {
     topo:    { name: 'Topografía y drenajes',    calc: function (ha) { return { v: Math.max(160000 * ha, 1800000), d: ha + ' ha × $160.000 (mínimo $1.800.000)' }; } },
     agro:    { name: 'Agricultura de precisión', calc: function (ha) { var h = Math.max(ha, 10); return { v: 190000 * h, d: h + ' ha × $190.000 por vuelo' + (ha < 10 ? ' (mínimo 10 ha)' : '') }; } },
+    riego:   { name: 'Riego y aspersión con drones', calc: function (ha) { var h = Math.max(ha, 10); return { v: 110000 * h, d: h + ' ha × $110.000 por aplicación, sin insumos' + (ha < 10 ? ' (mínimo 10 ha)' : '') }; } },
     diseno:  { name: 'Diseño de cultivos',       calc: function (ha) { return { v: 2500000, d: ha > 20 ? 'Precio base; más de 20 ha se confirma' : 'Finca de hasta 20 ha', from: ha > 20 }; } },
     predial: { name: 'Diagnóstico predial',      calc: function (ha) { return { v: 2200000, d: ha > 10 ? 'Precio base; más de 10 ha se confirma' : 'Predio de hasta 10 ha', from: ha > 10 }; } },
     ganado:  { name: 'Ganadería de precisión',   calc: function (ha) { var n = Math.max(1, Math.ceil(ha / 50)); return { v: 1500000 * n, d: n + (n === 1 ? ' visita' : ' visitas') + ' de hasta 50 ha' }; } }

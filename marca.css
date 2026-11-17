@@ -307,3 +307,19 @@ main { counter-reset: band; }
 @media (max-width: 639px) { #faq .faq > .faq__item:nth-child(5) { display: none; } }
 @media (min-width: 1024px) and (max-width: 1279px) { #faq .faq > .faq__item:nth-child(5), #faq .faq > .faq__item--wide { display: none; } }
 @media (min-width: 640px) and (max-width: 1023px) { #historia .panel { aspect-ratio: 4 / 3; } }
+/* phone: one more service in Drones and in Campo, so their rows sit a little closer */
+@media (max-width: 639px) {
+  #drones .rows > li:nth-child(n) { padding-block: 10px; }
+  #drones .rows > li p { font-size: 15px; line-height: 1.4; }
+  #campo .opt { min-height: 0; padding-block: 10px; gap: var(--s-3); }
+  #campo .quote__opts { gap: 6px; }
+}
+@media (max-width: 639px) {
+  #campo .opt__txt small { font-size: 13px; line-height: 1.35; }
+  #campo .quote__card { padding: var(--s-4); }
+}
+@media (min-width: 1024px) {
+  #drones .rows > li:nth-child(n) { padding-block: 6px; }
+  #drones .rows > li p { font-size: 15px; line-height: 1.4; }
+  #drones .rows { gap: 5px; }
+}
