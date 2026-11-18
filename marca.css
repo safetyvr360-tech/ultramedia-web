@@ -323,3 +323,39 @@ main { counter-reset: band; }
   #drones .rows > li p { font-size: 15px; line-height: 1.4; }
   #drones .rows { gap: 5px; }
 }
+
+/* ===== allied companies, in the footer of every page: each one a button on its own brand's ground ===== */
+.allies { margin: var(--s-8, 64px) 0 var(--s-7); }
+.allies__label { margin: 0 0 var(--s-4); font: 500 13px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .62); }
+.allies__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
+.ally { --ally: #fff; --ally-ground: #101318; position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "logo go" "txt go"; align-items: center; column-gap: var(--s-5); row-gap: var(--s-3);
+  padding: var(--s-5) var(--s-6); min-height: 132px; border-radius: var(--u-r); border: 1px solid rgba(255, 255, 255, .12); background: var(--ally-ground); color: #eef2f5; text-decoration: none;
+  transition: transform 260ms var(--u-ease), border-color 260ms var(--u-ease), box-shadow 260ms var(--u-ease); }
+.ally::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .55; transition: opacity 260ms var(--u-ease);
+  background: radial-gradient(70% 120% at 100% 0%, color-mix(in oklab, var(--ally) 30%, transparent), transparent 70%); }
+.ally--svr { --ally: #f2bb1d; --ally-ground: #0d1217; }
+.ally--svr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; pointer-events: none;
+  background: repeating-linear-gradient(-45deg, #f2bb1d 0 10px, #0d1217 10px 20px); opacity: .85; }
+.ally--nf { --ally: #2b8cf6; --ally-ground: #0a0f1c; }
+.ally--nf::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; pointer-events: none; background: linear-gradient(90deg, #1e6bff, #2ec5f2); }
+.ally__logo { grid-area: logo; height: 44px; width: auto; max-width: 100%; display: block; }
+.ally__txt { grid-area: txt; font-size: 15px; line-height: 1.45; color: rgba(238, 242, 245, .78); max-width: 42ch; }
+.ally__go { grid-area: go; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: var(--u-r-sm); white-space: nowrap;
+  font: 600 14px/1 var(--font-display); transition: transform 260ms var(--u-ease), box-shadow 260ms var(--u-ease); }
+.ally--svr .ally__go { background: #f2bb1d; color: #0d1217; }
+.ally--nf .ally__go { background: linear-gradient(90deg, #1247c4, #1a5ff0); color: #fff; }
+.ally__go svg { transition: transform 260ms var(--u-ease); }
+.ally:focus-visible { outline: 2px solid var(--ally); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .ally:hover { transform: translateY(-3px); border-color: color-mix(in oklab, var(--ally) 60%, transparent); box-shadow: 0 24px 48px -28px color-mix(in oklab, var(--ally) 70%, transparent); }
+  .ally:hover::before { opacity: 1; }
+  .ally:hover .ally__go svg { transform: translate(2px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) { .ally, .ally::before, .ally__go, .ally__go svg { transition: none; } }
+@media (max-width: 1023px) { .ally { grid-template-columns: minmax(0, 1fr); grid-template-areas: "logo" "txt" "go"; } .ally__go { justify-self: start; } }
+@media (max-width: 639px) { .allies__grid { grid-template-columns: minmax(0, 1fr); } .ally { padding: var(--s-5); } .ally__logo { height: 36px; } }
+/* the footer grows with the allied companies instead of squeezing the closing picture */
+footer.closing { height: auto; }
+@media (min-width: 1024px) { footer.closing { min-height: 100svh; } }
+@media (max-width: 1023px) { footer.closing .close__media { flex: none; height: auto; aspect-ratio: 4 / 3; } }
+@media (max-width: 639px) { footer.closing:has(> .wrap > .closing__cta > .close__media) > .wrap { grid-template-rows: auto auto; } }
