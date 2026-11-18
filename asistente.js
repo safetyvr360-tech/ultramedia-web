@@ -59,7 +59,7 @@
       ? 'Ahora mismo hay alguien del equipo en WhatsApp (lunes a viernes, 8 a.m. a 6 p.m.).'
       : 'El equipo responde por WhatsApp de lunes a viernes, de 8 a.m. a 6 p.m. Déjanos tu mensaje y te escribimos en ese horario.';
   }
-  var SKYDECK = { label: 'Pedir un vuelo en SkyDeck', href: 'https://skydeck.dronesbaq.com' };
+  var SKYDECK = { label: 'Pedir un vuelo por WhatsApp', href: 'https://wa.me/573006242963?text=Hola%2C%20quiero%20pedir%20un%20vuelo%20de%20seguimiento%20de%20obra%20con%20SkyDeck' };
   var FICHA = { label: 'Ficha técnica (PDF)', href: 'http://dronesbaq.com/wp-content/uploads/2026/10/Servicios_Termograficos_Drones_Barranquilla_peq.pdf' };
   var PROYECTOS = { label: 'Ver los proyectos', href: 'index.html#proyectos' };
 
